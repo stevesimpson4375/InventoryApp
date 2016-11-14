@@ -10,7 +10,8 @@ public class CreateAndSaveFood extends HttpServlet {
   public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
       Food newFood = new Food(req.getParameter("foodDescription"),
               Double.parseDouble(req.getParameter("foodPrice")), req.getParameter("purchaseDate"),
-                req.getParameter("expireDate"));
+                req.getParameter("expireDate"), Double.parseDouble(req.getParameter("amount")),
+                        req.getParameter("amountType"));
       resp.sendRedirect("/enterFoodPage.jsp?foodName=" + newFood.getDescription());
   }
 }

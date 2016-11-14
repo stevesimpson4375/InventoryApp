@@ -1,22 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com;
 
 import java.util.*;
 
-/**
- *
- * @author steve
- */
-public class Food extends Grocery{
+public class Food extends Consumable{
     
     private String expireDate;
     
-    public Food(String description, Double price, String purchaseDate, String expireDate){
-        super(description, price, purchaseDate);
+    public Food(String description, Double price, String purchaseDate,
+            String expireDate, Double amount, String amountType){
+        super(description, price, purchaseDate, amount, amountType);
         this.expireDate = expireDate;
     }
 

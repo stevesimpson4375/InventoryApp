@@ -19,7 +19,9 @@
             <div>Description <input type="text" name="foodDescription"/></div>
             <div>Price <input type="text" name="foodPrice"/></div>
             <div>Purchase Date <input type="text" name="purchaseDate"/></div>
-            <div>Expiration Date<input type="text" name="expireDate"/></div>
+            <div>Expiration Date <input type="text" name="expireDate"/></div>
+            <div>Amount <input type="text" name="amountOfFood"</div>
+            <div>Amount Type <input type="text" name="amountType"</div>
             <div><input type="submit" value="Save Food"</div>
         </form>
 

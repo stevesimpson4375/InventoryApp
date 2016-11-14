@@ -5,7 +5,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <groupId>com.example.guestbook</groupId>
+    <groupId>com</groupId>
     <artifactId>InventoryApp</artifactId>
     
     <!-- [START set_versions] -->

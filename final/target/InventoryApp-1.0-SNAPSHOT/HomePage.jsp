@@ -1,9 +1,3 @@
-<%-- 
-    Document   : HomePage
-    Created on : Nov 12, 2016, 7:59:06 PM
-    Author     : steve
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,13 +9,17 @@
         <h2>Welcome to my inventory tracking App!</h2>
 
         <button id="foodButton">Enter Food</button>
-        <button id="houseHoldProductsButton">Enter House Hold Item></button>
+        <button id="houseHoldProductsButton">Enter Household Item</button>
+        <button id="applianceButton">Enter Appliance</button>
         <script type="text/javascript">
             document.getElementById("foodButton").onclick = function(){
                 location.href = "/enterFoodPage.jsp";
             };
             document.getElementById("houseHoldProductsButton").onclick = function(){
-                location.href = "/enterHouseHoldProductsPage";
+                location.href = "/enterHouseHoldProducts.jsp";
+            };
+            document.getElementById("applianceButton").onclick = function(){
+                location.href = "/enterAppliance.jsp";
             };
         </script>
     </body>
