@@ -9,6 +9,14 @@
         <servlet-name>enterFood</servlet-name>
         <url-pattern>/enterFood</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>enterProduct</servlet-name>
+        <servlet-class>com.CreateAndSaveHouseHoldProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>enterProduct</servlet-name>
+        <url-pattern>/enterProduct</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>HomePage.jsp</welcome-file>
     </welcome-file-list>

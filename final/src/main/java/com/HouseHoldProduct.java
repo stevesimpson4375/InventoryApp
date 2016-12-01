@@ -1,12 +1,13 @@
 package com;
 
-public class HouseHoldProduct extends Grocery{
+public class HouseHoldProduct extends Consumable{
     private String type;
-    static private String[] validTypes = { "Fork", "Microwave", "Paper Towels",
-        "Toilet Paper" , "Knife", "Toaster Oven" };
+    static private String[] validTypes = { "Paper Towels", "soap",
+        "Toilet Paper" };
     
-    public HouseHoldProduct(String description, Double price, String purchaseDate, String type){
-        super(description, price, purchaseDate);
+    public HouseHoldProduct(String description, Double price, String purchaseDate,
+            Double amount, String amountType, String type){
+        super(description, price, purchaseDate, amount, amountType);
         this.type = type;
     }
     

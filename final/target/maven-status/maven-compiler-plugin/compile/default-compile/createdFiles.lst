@@ -1,0 +1,13 @@
+com\Appliance.class
+com\Greeting.class
+com\InventoryItem.class
+com\SignGuestbookServlet.class
+com\Consumable.class
+com\Durable.class
+com\Grocery.class
+com\CreateAndSaveFood.class
+com\Guestbook.class
+com\CreateAndSaveHouseHoldProduct.class
+com\OfyHelper.class
+com\Food.class
+com\HouseHoldProduct.class

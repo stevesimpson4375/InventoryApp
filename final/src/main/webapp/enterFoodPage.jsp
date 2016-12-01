@@ -1,13 +1,7 @@
-<%-- 
-    Document   : enterFood
-    Created on : Nov 12, 2016, 7:35:15 PM
-    Author     : steve
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,7 +24,7 @@
             if (foodName != null) {
                 pageContext.setAttribute("foodName", foodName);
         %>
-        <p>${c:escapeXml(foodName)} has been saved</p>
+        <p>${fn:escapeXml(foodName)} has been saved</p>
         <%
             }
         %>
