@@ -1,15 +1,32 @@
 package com;
 
+import com.googlecode.objectify.Key;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
+@Entity
 public class InventoryItem {
 
+    public Key<InventoryItem> getKey() {
+        return Key.create(InventoryItem.class, id);
+    }
+    @Id
+    Long id;
     private String description;
+    @Index
     private Double price;
+    @Index
     private String purchaseDate;
-    
-    public InventoryItem(String description, Double price, String purchasedate){
+
+    public InventoryItem(String description, Double price, String purchasedate) {
         this.description = description;
         this.price = price;
         this.purchaseDate = purchaseDate;
+    }
+
+    public InventoryItem() {
     }
 
     public String getDescription() {
@@ -34,5 +51,9 @@ public class InventoryItem {
 
     public void setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    public String toString() {
+        return "This is a " + getDescription();
     }
 }

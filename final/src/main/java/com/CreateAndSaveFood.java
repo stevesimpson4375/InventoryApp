@@ -12,6 +12,7 @@ public class CreateAndSaveFood extends HttpServlet {
               Double.parseDouble(req.getParameter("foodPrice")), req.getParameter("purchaseDate"),
                 req.getParameter("expireDate"), Double.parseDouble(req.getParameter("amount")),
                         req.getParameter("amountType"));
+      Util.saveThing(newFood);
       resp.sendRedirect("/enterFoodPage.jsp?foodName=" + newFood.getDescription());
   }
 }

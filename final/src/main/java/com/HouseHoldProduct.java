@@ -1,7 +1,11 @@
 package com;
 
+import com.googlecode.objectify.annotation.Subclass;
+import com.googlecode.objectify.annotation.Index;
+
+@Subclass(index=true)
 public class HouseHoldProduct extends Consumable{
-    private String type;
+    @Index private String type;
     static private String[] validTypes = { "Paper Towels", "soap",
         "Toilet Paper" };
     

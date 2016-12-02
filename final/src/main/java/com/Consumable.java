@@ -1,16 +1,22 @@
 package com;
 
+import com.googlecode.objectify.annotation.Subclass;
+import com.googlecode.objectify.annotation.Index;
+
+@Subclass(index=true)
 public class Consumable extends InventoryItem{
     
-    private Double amount;
-    private String amountType;
+    @Index private Double amount;
+    @Index private String amountType;
     
     public Consumable(String description, Double price, String purchaseDate,
             Double amount, String amountType){
         super(description, price, purchaseDate);
         this.amount = amount;
         this.amountType = amountType;
-    }   
+    }
+    
+    public Consumable(){}
 
     public Double getAmount() {
         return amount;

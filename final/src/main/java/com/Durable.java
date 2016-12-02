@@ -1,9 +1,13 @@
 package com;
 
+import com.googlecode.objectify.annotation.Subclass;
+import com.googlecode.objectify.annotation.Index;
+
+@Subclass(index=true)
 public class Durable extends InventoryItem{
     
-    private String material;
-    private Double weight;
+    @Index private String material;
+    @Index private Double weight;
 
     public Durable(String description, Double price, String purchaseDate,
         String material, Double weight){

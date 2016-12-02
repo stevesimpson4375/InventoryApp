@@ -4,7 +4,6 @@ com\InventoryItem.class
 com\SignGuestbookServlet.class
 com\Consumable.class
 com\Durable.class
-com\Grocery.class
 com\CreateAndSaveFood.class
 com\Guestbook.class
 com\CreateAndSaveHouseHoldProduct.class

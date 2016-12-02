@@ -1,5 +1,9 @@
 package com;
 
+import com.googlecode.objectify.annotation.Subclass;
+import com.googlecode.objectify.annotation.Index;
+
+@Subclass(index=true)
 public class Appliance extends Durable{
 
     static private String[] validTypes = { "Crock Pot", "Oven" ,"Refrigerator", "Toaster Oven" };
