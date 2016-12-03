@@ -11,6 +11,7 @@
         <button id="foodButton">Enter Food</button>
         <button id="houseHoldProductsButton">Enter Household Item</button>
         <button id="applianceButton">Enter Appliance</button>
+        <button id="searchButton">Search Data</button>
         <script type="text/javascript">
             document.getElementById("foodButton").onclick = function(){
                 location.href = "/enterFoodPage.jsp";
@@ -20,6 +21,9 @@
             };
             document.getElementById("applianceButton").onclick = function(){
                 location.href = "/enterAppliance.jsp";
+            };
+            document.getElementById("searchButton").onclick = function(){
+                location.href = "/searchPage.jsp";
             };
         </script>
     </body>

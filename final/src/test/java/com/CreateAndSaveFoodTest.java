@@ -15,6 +15,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+import java.util.ArrayList;
 
 // http://stackoverflow.com/questions/5434419/how-to-test-my-servlet-using-junit
 public class CreateAndSaveFoodTest {
@@ -30,12 +31,7 @@ public class CreateAndSaveFoodTest {
     @BeforeClass
     public static void setUpClass() {
         session = ObjectifyService.begin();
-        ObjectifyService.register(InventoryItem.class);
-        ObjectifyService.register(Durable.class);
-        ObjectifyService.register(Consumable.class);
-        ObjectifyService.register(Appliance.class);
-        ObjectifyService.register(HouseHoldProduct.class);
-        ObjectifyService.register(Food.class);
+        Util.setup.classRegister();
         helper.setUp();
     }
 
@@ -70,11 +66,16 @@ public class CreateAndSaveFoodTest {
         verify(response).sendRedirect(captor.capture());
         assertEquals("/enterFoodPage.jsp?foodName=Cheese", captor.getValue());
 
-        Query<InventoryItem> all = Util.retreiveAll();
-
+        Query<InventoryItem> all = Util.datastore.retreiveAll();
+        ArrayList<InventoryItem> it = new ArrayList<>();
         for (InventoryItem q : all) {
             System.out.println(q.toString());
-            ofy().delete().entity(q).now();
+            it.add(q);
+            Util.datastore.deleteEntity(q);
+        }
+        
+        for (InventoryItem w : it) {
+            System.out.println(w.toString());
         }
 
         ofy().clear();

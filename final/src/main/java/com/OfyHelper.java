@@ -15,12 +15,7 @@ public class OfyHelper implements ServletContextListener {
   public void contextInitialized(ServletContextEvent event) {
     // This will be invoked as part of a warmup request, or the first user request if no warmup
     // request.
-    ObjectifyService.register(InventoryItem.class);
-    ObjectifyService.register(Durable.class);
-    ObjectifyService.register(Consumable.class);
-    ObjectifyService.register(Appliance.class);
-    ObjectifyService.register(HouseHoldProduct.class);
-    ObjectifyService.register(Food.class);
+    Util.setup.classRegister();
   }
 
   public void contextDestroyed(ServletContextEvent event) {

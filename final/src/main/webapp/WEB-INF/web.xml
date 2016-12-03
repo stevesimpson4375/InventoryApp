@@ -17,6 +17,14 @@
         <servlet-name>enterProduct</servlet-name>
         <url-pattern>/enterProduct</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteAll</servlet-name>
+        <servlet-class>com.deleteAll</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteAll</servlet-name>
+        <url-pattern>/deleteAll</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>HomePage.jsp</welcome-file>
     </welcome-file-list>
