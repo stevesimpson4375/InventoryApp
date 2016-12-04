@@ -9,6 +9,9 @@ public class Food extends Consumable{
     
     @Index private String expireDate;
     
+    private static String[] fields = { "Description", "Price", "Purchase Date",
+        "Expire Date", "Amount", "Amount Type"};
+    
     public Food(String description, Double price, String purchaseDate,
             String expireDate, Double amount, String amountType){
         super(description, price, purchaseDate, amount, amountType);
@@ -17,6 +20,10 @@ public class Food extends Consumable{
     
     public Food(){}
 
+    public static String[] getFields() {
+        return fields;
+    }
+    
     public String getExipreDate() {
         return expireDate;
     }

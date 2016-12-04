@@ -1,33 +1,49 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="h" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
         <title>Enter Food Page</title>
     </head>
+
+    <%
+        String[] fields = Food.getFields();
+        pageContext.setAttribute("fields", fields);
+
+    %>
+
     <body>
-        <h3>Enter Food</h3>
-        <form action="/enterFood" method="post">
-            <div>Description <input type="text" name="foodDescription"/></div>
-            <div>Price <input type="text" name="foodPrice"/></div>
-            <div>Purchase Date <input type="text" name="purchaseDate"/></div>
-            <div>Expiration Date <input type="text" name="expireDate"/></div>
-            <div>Amount <input type="text" name="amount"</div>
-            <div>Amount Type <input type="text" name="amountType"</div>
-            <div><input type="submit" value="Save Food"</div>
-        </form>
-
-        <%
-            String foodName = request.getParameter("foodName");
-            if (foodName != null) {
-                pageContext.setAttribute("foodName", foodName);
-        %>
-        <p>${fn:escapeXml(foodName)} has been saved</p>
-        <%
-            }
-        %>
-
+        <div id="container">
+            <h:backToHomePage></h:backToHomePage>
+                <h3 class="header">Enter Food</h3>
+            <div class="survey">
+                <form action="/enterFood" method="post">
+                    <table class="hydQuestion">
+                        <c:forEach var="attr" items="${fields}">
+                            <h:enterField field="${attr}"></h:enterField>
+                        </c:forEach>
+                        <tr>
+                            <td><input type="submit" value="Save Food"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <%String foodName = request.getParameter("foodName");
+                if (foodName != null) {
+                    pageContext.setAttribute("foodName", foodName);
+            %>
+            <br />
+            <p class="header">${fn:escapeXml(foodName)} has been saved</p>
+            <%
+                }
+            %>
+            <h:backToHomePage></h:backToHomePage>
+        </div>
     </body>
 </html>

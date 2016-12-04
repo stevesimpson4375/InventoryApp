@@ -1,0 +1,108 @@
+/* mystyle.css - an external style sheet for use with myindex.html*/
+
+
+h1,h2,h3 {
+    margin: 0;
+}
+
+.header {
+    background-color: teal;
+    color: white;
+    text-align: center;
+}
+
+p {
+    padding-left: 10px;
+}
+
+body {
+    background: #999;
+}
+
+#container {
+    background-color: white;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pageDescription {
+    float: right;
+    width: 780px;
+    text-align: center;
+}
+
+#footer {
+    clear: both;
+}
+
+nav {
+    background-color: teal;
+    padding: 10px;
+    clear: both;
+}
+
+nav a {
+    color: white;
+}
+
+#container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#links ul {
+    list-style: none;
+}
+
+#header {
+    background-color: teal;
+    color: white;
+}
+
+.survey {
+    width: 1000px;
+    padding: 0 100px 0 100px;
+}
+
+.tableHeader{
+    text-align: center;
+}
+
+.submit{
+    text-align: center;
+}
+
+.surveyTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav {
+    background-color: teal;
+    padding: 10px;
+    clear: both;
+}
+
+.nav a {
+    color: white;
+}
+
+.hydQuestion {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    cell-spacing: 5px;
+}
+
+.links {
+    float: right;
+    width: 380px;
+    padding: 30px;
+}
+
+.links a {
+    font-weight: bold;
+}
