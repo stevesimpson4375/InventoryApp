@@ -41,24 +41,19 @@ public class CreateAndSaveFoodTest {
         helper.tearDown();
     }
 
-    /**
-     * Test of doPost method, of class CreateAndSaveFood.
-     *
-     * @throws java.lang.Exception
-     */
     @Test
     public void testDoPost() throws Exception {
         System.out.println("doPost");
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveFood instance = new CreateAndSaveFood();
-
-        when(request.getParameter("foodDescription")).thenReturn("Cheese");
-        when(request.getParameter("foodPrice")).thenReturn("4.00");
-        when(request.getParameter("purchaseDate")).thenReturn("11/27/2016");
-        when(request.getParameter("expireDate")).thenReturn("06/21/2017");
-        when(request.getParameter("amount")).thenReturn("16");
-        when(request.getParameter("amountType")).thenReturn("ounces");
+        String[] fields = Food.getFields();
+        when(request.getParameter(fields[0])).thenReturn("Cheese");
+        when(request.getParameter(fields[1])).thenReturn("4.00");
+        when(request.getParameter(fields[2])).thenReturn("11/27/2016");
+        when(request.getParameter(fields[3])).thenReturn("06/21/2017");
+        when(request.getParameter(fields[4])).thenReturn("16");
+        when(request.getParameter(fields[5])).thenReturn("ounces");
 
         instance.doPost(request, response);
 

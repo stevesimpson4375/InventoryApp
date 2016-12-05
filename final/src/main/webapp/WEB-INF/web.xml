@@ -25,6 +25,14 @@
         <servlet-name>deleteAll</servlet-name>
         <url-pattern>/deleteAll</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateAndSaveAppliance</servlet-name>
+        <servlet-class>com.CreateAndSaveAppliance</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAndSaveAppliance</servlet-name>
+        <url-pattern>/CreateAndSaveAppliance</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>HomePage.jsp</welcome-file>
     </welcome-file-list>

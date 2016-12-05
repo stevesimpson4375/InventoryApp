@@ -17,10 +17,10 @@
                 location.href = "/enterFoodPage.jsp";
             };
             document.getElementById("houseHoldProductsButton").onclick = function(){
-                location.href = "/enterHouseHoldProducts.jsp";
+                location.href = "/enterHouseHoldProductsPage.jsp";
             };
             document.getElementById("applianceButton").onclick = function(){
-                location.href = "/enterAppliance.jsp";
+                location.href = "/enterAppliancePage.jsp";
             };
             document.getElementById("searchButton").onclick = function(){
                 location.href = "/searchPage.jsp";

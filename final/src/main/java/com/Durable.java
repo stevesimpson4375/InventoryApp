@@ -15,7 +15,9 @@ public class Durable extends InventoryItem{
         this.material = material;
         this.weight = weight;
     }
-        
+    
+    public Durable(){}
+    
     public String getMaterial() {
         return material;
     }

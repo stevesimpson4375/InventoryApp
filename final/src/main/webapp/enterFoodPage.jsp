@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="com.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="h" %>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="com.*" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,15 +13,13 @@
     </head>
 
     <%
-        String[] fields = Food.getFields();
-        pageContext.setAttribute("fields", fields);
-
+        pageContext.setAttribute("fields", Food.getFields());
     %>
 
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
-                <h3 class="header">Enter Food</h3>
+            <h3 class="header">Enter Food</h3>
             <div class="survey">
                 <form action="/enterFood" method="post">
                     <table class="hydQuestion">
@@ -34,7 +32,8 @@
                     </table>
                 </form>
             </div>
-            <%String foodName = request.getParameter("foodName");
+            <%
+                String foodName = request.getParameter("foodName");
                 if (foodName != null) {
                     pageContext.setAttribute("foodName", foodName);
             %>
