@@ -6,6 +6,7 @@ import com.googlecode.objectify.ObjectifyService;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 import com.googlecode.objectify.cmd.Query;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Util {
 
@@ -31,6 +32,7 @@ public class Util {
         }
         
         public static ArrayList<String> retrieveDescriptions(){
+            
             Query<InventoryItem> results = retreiveAll();
             ArrayList<String> items = new ArrayList<>();
                 for (InventoryItem i : results) { items.add(i.toString());}
@@ -47,6 +49,17 @@ public class Util {
 
         public static void deleteEntity(InventoryItem item) {
             ofy().delete().entity(item).now();
+        }
+        
+        public static class search{
+            
+            public static ArrayList<InventoryItem> byDescription(String description){                
+                List<InventoryItem> temp = ofy().load().type(InventoryItem.class).filter(
+                        "description", description).list();
+                ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
+                    results.addAll(temp);
+                return results;
+            }
         }
     }
 

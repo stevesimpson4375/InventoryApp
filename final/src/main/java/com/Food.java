@@ -3,6 +3,7 @@ package com;
 import java.util.*;
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.text.*;
 
 @Subclass(index=true)
 public class Food extends Consumable{
@@ -24,11 +25,16 @@ public class Food extends Consumable{
         return fields;
     }
     
-    public String getExipreDate() {
+    public String getExpireDate() {
         return expireDate;
     }
 
-    public void setExipreDate(String exipreDate) {
+    public void setExpireDate(String exipreDate) {
         this.expireDate = exipreDate;
+    }
+    
+    @Override
+    public String toString() {
+        return "This is: " + getDescription() + " and it expires " + getExpireDate();
     }
 }

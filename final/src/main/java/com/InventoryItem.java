@@ -14,6 +14,7 @@ public class InventoryItem {
     }
     @Id
     Long id;
+    @Index
     private String description;
     @Index
     private Double price;

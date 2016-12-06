@@ -16,6 +16,7 @@ import java.io.IOException;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import java.util.ArrayList;
+import java.util.List;
 
 // http://stackoverflow.com/questions/5434419/how-to-test-my-servlet-using-junit
 public class CreateAndSaveFoodTest {
@@ -48,31 +49,39 @@ public class CreateAndSaveFoodTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveFood instance = new CreateAndSaveFood();
         String[] fields = Food.getFields();
-        when(request.getParameter(fields[0])).thenReturn("Cheese");
-        when(request.getParameter(fields[1])).thenReturn("4.00");
-        when(request.getParameter(fields[2])).thenReturn("11/27/2016");
-        when(request.getParameter(fields[3])).thenReturn("06/21/2017");
-        when(request.getParameter(fields[4])).thenReturn("16");
-        when(request.getParameter(fields[5])).thenReturn("ounces");
+        String[] attributes = testUtil.getFoodAttributes();
+        when(request.getParameter(fields[0])).thenReturn(attributes[0]);
+        when(request.getParameter(fields[1])).thenReturn(attributes[1]);
+        when(request.getParameter(fields[2])).thenReturn(attributes[2]);
+        when(request.getParameter(fields[3])).thenReturn(attributes[3]);
+        when(request.getParameter(fields[4])).thenReturn(attributes[4]);
+        when(request.getParameter(fields[5])).thenReturn(attributes[5]);
 
         instance.doPost(request, response);
 
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(captor.capture());
-        assertEquals("/enterFoodPage.jsp?foodName=Cheese", captor.getValue());
+        assertEquals("/enterFoodPage.jsp?foodName=" + attributes[0], captor.getValue());
 
         Query<InventoryItem> all = Util.datastore.retreiveAll();
-        ArrayList<InventoryItem> it = new ArrayList<>();
+        ArrayList<InventoryItem> results = Util.datastore.search.byDescription(attributes[0]);
+        System.out.println(results.size()); // This confirms that the item was saved and retrieved
+        
+        // This boolean and for() confirms that the found object matches expectations
+        boolean found = false;
+        for(InventoryItem i: results){
+            if(i.getDescription().equals(attributes[0])){
+                found = true;
+            }           
+        }
+        assertEquals(true, found);
+            
+        // Some information is printed just in case I want to read it manually
+        // The datastore is also deleted to ensure that tests do not add extra items
         for (InventoryItem q : all) {
             System.out.println(q.toString());
-            it.add(q);
+            System.out.println(q.getDescription());
             Util.datastore.deleteEntity(q);
         }
-        
-        for (InventoryItem w : it) {
-            System.out.println(w.toString());
-        }
-
-        ofy().clear();
     }
 }
