@@ -23,6 +23,18 @@
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Enter Search Criteria Below</h3>
                 <div class="survey">
+                    <form action="/SearchBy" method="post">
+                        <table class="hydQuestion">
+                        <h:searchEnter searchBy="Description"></h:searchEnter>
+                        <h:searchEnter searchBy="Price"></h:searchEnter>
+                        <h:searchEnter searchBy="Purchase Date"></h:searchEnter>
+                        </table>
+                    </form>
+                </div>
+
+
+                <hr />
+                <div class="survey">
                     <table class="hydQuestion">
                     <c:forEach var="i" items="${items}">
                         <tr><td><p>${i}</p></td></tr>
@@ -31,9 +43,9 @@
                 <br />
                 <div class="survey">
                     <table class="hydQuestion">
-                    <form action="/deleteAll" method="post">
-                        <tr><td><input type="submit" value="Delete All Records"></td></tr>
-                    </form>
+                        <form action="/deleteAll" method="post">
+                            <tr><td><input type="submit" value="Delete All Records"></td></tr>
+                        </form>
                     </table>
                 </div>
             </div>

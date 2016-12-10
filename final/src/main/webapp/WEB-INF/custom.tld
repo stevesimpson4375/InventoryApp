@@ -28,4 +28,12 @@
     <name>enterField</name>
     <path>/webapp/WEB-INF/tags/enterField.tag</path>
   </tag-file>
+  <tag-file>
+    <name>searchResult</name>
+    <path>/webapp/WEB-INF/tags/searchResult.tag</path>
+  </tag-file>
+  <tag-file>
+    <name>searchEnter</name>
+    <path>/webapp/WEB-INF/tags/searchEnter.tag</path>
+  </tag-file>
 </taglib>

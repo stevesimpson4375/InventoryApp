@@ -5,6 +5,10 @@
         <servlet-name>enterFood</servlet-name>
         <servlet-class>com.CreateAndSaveFood</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchBy</servlet-name>
+        <servlet-class>com.SearchByDescription</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>enterFood</servlet-name>
         <url-pattern>/enterFood</url-pattern>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>CreateAndSaveAppliance</servlet-name>
         <url-pattern>/CreateAndSaveAppliance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchBy</servlet-name>
+        <url-pattern>/SearchBy</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>HomePage.jsp</welcome-file>

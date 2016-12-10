@@ -48,12 +48,13 @@ public class CreateAndSaveApplianceTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveAppliance instance = new CreateAndSaveAppliance();
         String[] fields = Appliance.getFields();
-        when(request.getParameter(fields[0])).thenReturn("Oster Bread Machine");
-        when(request.getParameter(fields[1])).thenReturn("75.00");
-        when(request.getParameter(fields[2])).thenReturn("11/27/2016");
-        when(request.getParameter(fields[3])).thenReturn("Metal");
-        when(request.getParameter(fields[4])).thenReturn("4");
-        when(request.getParameter("type")).thenReturn("Bread Machine");
+        String[] attributes = testUtil.getApplianceAttributes();
+        when(request.getParameter(fields[0])).thenReturn(attributes[0]);
+        when(request.getParameter(fields[1])).thenReturn(attributes[1]);
+        when(request.getParameter(fields[2])).thenReturn(attributes[2]);
+        when(request.getParameter(fields[3])).thenReturn(attributes[3]);
+        when(request.getParameter(fields[4])).thenReturn(attributes[4]);
+        when(request.getParameter("type")).thenReturn(attributes[5]);
 
         instance.doPost(request, response);
 

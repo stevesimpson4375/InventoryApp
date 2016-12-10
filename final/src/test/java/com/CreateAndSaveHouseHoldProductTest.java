@@ -15,6 +15,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+import java.util.ArrayList;
 
 public class CreateAndSaveHouseHoldProductTest {
 
@@ -50,24 +51,31 @@ public class CreateAndSaveHouseHoldProductTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveHouseHoldProduct instance = new CreateAndSaveHouseHoldProduct();
         String[] fields = HouseHoldProduct.getFields();
-        when(request.getParameter(fields[0])).thenReturn("Irish Spring");
-        when(request.getParameter(fields[1])).thenReturn("1");
-        when(request.getParameter(fields[2])).thenReturn("11/27/2016");
-        when(request.getParameter(fields[3])).thenReturn("1");
-        when(request.getParameter(fields[4])).thenReturn("Each");
-        when(request.getParameter("type")).thenReturn("Soap");
+        String [] attributes = testUtil.getHouseHoldProductAttributes();
+        when(request.getParameter(fields[0])).thenReturn(attributes[0]);
+        when(request.getParameter(fields[1])).thenReturn(attributes[1]);
+        when(request.getParameter(fields[2])).thenReturn(attributes[2]);
+        when(request.getParameter(fields[3])).thenReturn(attributes[3]);
+        when(request.getParameter(fields[4])).thenReturn(attributes[4]);
+        when(request.getParameter("type")).thenReturn(attributes[5]);
 
         instance.doPost(request, response);
 
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(captor.capture());
-        assertEquals("/enterHouseHoldProductsPage.jsp?productName=Irish Spring", captor.getValue());
+        assertEquals("/enterHouseHoldProductsPage.jsp?productName=" + 
+                attributes[0], captor.getValue());
 
-        Query<InventoryItem> all = Util.datastore.retreiveAll();
-        for (InventoryItem q : all) {
-            System.out.println(q.toString());
-            Util.datastore.deleteEntity(q);
+        ArrayList<InventoryItem> results = Util.datastore.search.byDescription(attributes[0]);
+        System.out.println(results.size()); // This confirms that the item was saved and retrieved
+        
+        // This boolean and for() confirms that the found object matches expectations
+        boolean found = false;
+        for(InventoryItem i: results){
+            if(i.getDescription().equals(attributes[0])){
+                found = true;
+            }           
         }
-
+        assertEquals(true, found);
     }
 }

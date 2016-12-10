@@ -54,10 +54,25 @@ public class Util {
         public static class search{
             
             public static ArrayList<InventoryItem> byDescription(String description){                
-                List<InventoryItem> temp = ofy().load().type(InventoryItem.class).filter(
-                        "description", description).list();
+                List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
+                        .filter("description", description).list();
                 ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
                     results.addAll(temp);
+                return results;
+            }
+            
+            public static ArrayList<InventoryItem> byPrice(double price){
+                List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
+                        .filter("price", price).list();
+                ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
+                    results.addAll(temp);
+                    return results;
+            }
+            
+            public static ArrayList<InventoryItem> byPurchaseDate(String date){
+                    List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
+                            .filter("purchaseDate", date).list();
+                    ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
                 return results;
             }
         }
