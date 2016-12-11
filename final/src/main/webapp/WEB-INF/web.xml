@@ -6,8 +6,16 @@
         <servlet-class>com.CreateAndSaveFood</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SearchBy</servlet-name>
+        <servlet-name>SearchByDescription</servlet-name>
         <servlet-class>com.SearchByDescription</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchByPriceServlet</servlet-name>
+        <servlet-class>com.SearchByPriceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteByKeyServlet</servlet-name>
+        <servlet-class>com.deleteByKeyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>enterFood</servlet-name>
@@ -38,8 +46,16 @@
         <url-pattern>/CreateAndSaveAppliance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SearchBy</servlet-name>
-        <url-pattern>/SearchBy</url-pattern>
+        <servlet-name>SearchByDescription</servlet-name>
+        <url-pattern>/SearchByDescription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchByPriceServlet</servlet-name>
+        <url-pattern>/SearchByPrice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteByKeyServlet</servlet-name>
+        <url-pattern>/deleteByKeyServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>HomePage.jsp</welcome-file>

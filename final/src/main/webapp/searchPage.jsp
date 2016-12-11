@@ -1,12 +1,11 @@
+<!DOCTYPE html>
 <%@ page import="com.googlecode.objectify.cmd.Query" %>
 <%@ page import="com.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="h" %>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,13 +22,17 @@
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Enter Search Criteria Below</h3>
                 <div class="survey">
-                    <form action="/SearchBy" method="post">
-                        <table class="hydQuestion">
+                    <table class="hydQuestion">
+                        <form action="/SearchByDescription" method="post">
                         <h:searchEnter searchBy="Description"></h:searchEnter>
+                        </form>
+                        <form action="/SearchByPrice" method="post">
                         <h:searchEnter searchBy="Price"></h:searchEnter>
+                        </form>
+                        <form action="/SearchByPurchaseDate" mothod="post">
                         <h:searchEnter searchBy="Purchase Date"></h:searchEnter>
-                        </table>
-                    </form>
+                        </form>
+                    </table>
                 </div>
 
 

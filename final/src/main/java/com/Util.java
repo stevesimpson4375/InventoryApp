@@ -61,11 +61,13 @@ public class Util {
                 return results;
             }
             
-            public static ArrayList<InventoryItem> byPrice(double price){
+            public static InventoryItem[] byPrice(double price){
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
                         .filter("price", price).list();
-                ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
-                    results.addAll(temp);
+                InventoryItem[] results = new InventoryItem[temp.size()];
+                    for(int i = 0; i < temp.size(); i++){
+                        results[i] = temp.get(i);
+                    }
                     return results;
             }
             

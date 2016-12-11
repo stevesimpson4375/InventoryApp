@@ -30,6 +30,10 @@ public class InventoryItem {
     public InventoryItem() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getDescription() {
         return description;
     }
