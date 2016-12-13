@@ -4,8 +4,8 @@
 
  handlers:
  - url: /
-   static_files: www/index.html
-   upload: www/index.html
+   static_files: www/HomePage.jsp
+   upload: www/HomePage.jsp
 
  - url: /(.*)
    static_files: www/\1

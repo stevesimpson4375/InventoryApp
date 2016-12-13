@@ -1,40 +1,33 @@
 package com;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SearchByPriceServlet extends HttpServlet {
+public class SearchBy extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-       
-        double searchBy = Double.parseDouble(request.getParameter("Price"));
         
-        InventoryItem[] results = Util.datastore.search.byPrice(searchBy);
+        // The double is declared and assigned to eliminate calling parseDouble more than once
+        //Double searchValue = Double.parseDouble(request.getParameter("searchValue"));
+        
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(request.
+                getParameter("searchedBy"), request.getParameter("searchValue"));
+        
         Long[] Ids = new Long[results.length];
         
         for(int i = 0; i < results.length; i++){
             Ids[i] = results[i].getId();
-        } 
+        }
         
         request.setAttribute("results", results);
         request.setAttribute("ids", Ids);
+        request.setAttribute("searchedBy", request.getParameter("searchedBy"));
+        request.setAttribute("searchValue", request.getParameter("searchValue"));
 	RequestDispatcher view = request.getRequestDispatcher("searchResults.jsp");			
 	view.forward(request, response);
     }

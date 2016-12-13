@@ -23,10 +23,10 @@
                 <h3 class="header">Enter Search Criteria Below</h3>
                 <div class="survey">
                     <table class="hydQuestion">
-                        <form action="/SearchByDescription" method="post">
+                        <form action="/SearchBy" method="post">
                         <h:searchEnter searchBy="Description"></h:searchEnter>
                         </form>
-                        <form action="/SearchByPrice" method="post">
+                        <form action="/SearchBy" method="post">
                         <h:searchEnter searchBy="Price"></h:searchEnter>
                         </form>
                         <form action="/SearchByPurchaseDate" mothod="post">

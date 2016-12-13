@@ -1,48 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author steve
- */
-public class deleteByKeyServlet extends HttpServlet {
+public class DeleteByIdServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet deleteByKeyServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet deleteByKeyServlet at " + request.getContextPath() + "</h1>");
-            out.println("<p>" + request.getParameter("selected")+ "</p>");
-            out.println("</body>");
-            out.println("</html>");
+
+        Util.datastore.deleteById(Long.parseLong(request.getParameter("selected")));
+        
+        String forwardUrl = null;
+        String searchedBy = null;
+        
+        switch(request.getParameter("searchedBy")){
+            case "Description":
+                forwardUrl = "/SearchBy";
+                searchedBy = "Description";
+                break;
+            case "Price":
+                forwardUrl = "/SearchBy";
+                searchedBy = "Price";
+                break;
         }
+        
+        request.setAttribute("searchValue", request.getParameter("searchValue"));
+        request.setAttribute("searchedBy", searchedBy);
+        request.setAttribute("forwardUrl", forwardUrl);
+        RequestDispatcher view = request.getRequestDispatcher("/deleteJump.jsp");
+	view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

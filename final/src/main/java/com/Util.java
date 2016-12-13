@@ -51,13 +51,35 @@ public class Util {
             ofy().delete().entity(item).now();
         }
         
+        public static void deleteById(Long id){
+            ofy().delete().type(InventoryItem.class).id(id).now();
+        }
+        
         public static class search{
             
-            public static ArrayList<InventoryItem> byDescription(String description){                
+            public static InventoryItem[] searchTypeResolver(String searchBy, 
+                    String searchValue){
+            InventoryItem[] results;
+                switch(searchBy){
+                    case "Description":
+                        results = byDescription(searchValue);
+                        break;
+                    case "Price":
+                        results = byPrice(Double.parseDouble(searchValue));
+                        break;
+                    default:
+                        results =  new InventoryItem[1];
+                }
+                return results;
+            }
+            
+            public static InventoryItem[] byDescription(String description){                
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
                         .filter("description", description).list();
-                ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
-                    results.addAll(temp);
+                InventoryItem[] results = new InventoryItem[temp.size()];
+                    for(int i = 0; i < temp.size(); i++){
+                        results[i] = temp.get(i);
+                    }
                 return results;
             }
             
