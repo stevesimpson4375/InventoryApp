@@ -66,8 +66,8 @@ public class CreateAndSaveHouseHoldProductTest {
         assertEquals("/enterHouseHoldProductsPage.jsp?productName=" + 
                 attributes[0], captor.getValue());
 
-        ArrayList<InventoryItem> results = Util.datastore.search.byDescription(attributes[0]);
-        System.out.println(results.size()); // This confirms that the item was saved and retrieved
+        InventoryItem[] results = Util.datastore.search.byDescription(attributes[0]);
+        System.out.println(results.length); // This confirms that the item was saved and retrieved
         
         // This boolean and for() confirms that the found object matches expectations
         boolean found = false;
