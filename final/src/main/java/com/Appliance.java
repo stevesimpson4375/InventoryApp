@@ -2,6 +2,7 @@ package com;
 
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.util.Date;
 
 @Subclass(index=true)
 public class Appliance extends Durable{
@@ -14,7 +15,7 @@ public class Appliance extends Durable{
     
     private String type;
     
-    public Appliance(String description, Double price, String purchaseDate,
+    public Appliance(String description, Double price, Date purchaseDate,
         String material, Double weight, String type){
         super(description, price, purchaseDate, material, weight);
         

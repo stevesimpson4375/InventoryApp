@@ -9,13 +9,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.ArgumentCaptor;
 import static org.mockito.Mockito.*;
-import static com.googlecode.objectify.ObjectifyService.ofy;
 import com.googlecode.objectify.cmd.Query;
 import java.io.Closeable;
 import java.io.IOException;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
-import static org.junit.Assert.*;
 
 public class CreateAndSaveApplianceTest {
     
@@ -63,6 +61,8 @@ public class CreateAndSaveApplianceTest {
         assertEquals("/enterAppliancePage.jsp?applianceName=Oster Bread Machine",
                 captor.getValue());
 
+        Thread.sleep(3000); // Saving to the datastore is not always instant
+        
         Query<InventoryItem> all = Util.datastore.retreiveAll();
         for (InventoryItem q : all) {
             System.out.println(q.toString());

@@ -2,6 +2,7 @@ package com;
 
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.util.Date;
 
 @Subclass(index=true)
 public class HouseHoldProduct extends Consumable{
@@ -14,7 +15,7 @@ public class HouseHoldProduct extends Consumable{
     static private String[] fields = { "Description", "Price", "Purchase Date",
         "Amount", "Amount Type"}; // The field "type" is omitted do to select box prompt
     
-    public HouseHoldProduct(String description, Double price, String purchaseDate,
+    public HouseHoldProduct(String description, Double price, Date purchaseDate,
             Double amount, String amountType, String type){
         super(description, price, purchaseDate, amount, amountType);
         this.type = type;

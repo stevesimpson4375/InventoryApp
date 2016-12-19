@@ -9,14 +9,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.ArgumentCaptor;
 import static org.mockito.Mockito.*;
-import static com.googlecode.objectify.ObjectifyService.ofy;
 import com.googlecode.objectify.cmd.Query;
 import java.io.Closeable;
 import java.io.IOException;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
-import java.util.ArrayList;
-import java.util.List;
 
 // http://stackoverflow.com/questions/5434419/how-to-test-my-servlet-using-junit
 public class CreateAndSaveFoodTest {
@@ -63,6 +60,8 @@ public class CreateAndSaveFoodTest {
         verify(response).sendRedirect(captor.capture());
         assertEquals("/enterFoodPage.jsp?foodName=" + attributes[0], captor.getValue());
 
+        Thread.sleep(3000); // Saving to the datastore is not always instant
+        
         Query<InventoryItem> all = Util.datastore.retreiveAll();
         InventoryItem[] results = Util.datastore.search.byDescription(attributes[0]);
         System.out.println(results.length); // This confirms that the item was saved and retrieved
