@@ -2,7 +2,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="com.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="h" %>
 
 <html>
@@ -19,13 +19,20 @@
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
-            <h3 class="header">Enter Food</h3>
-            <div class="survey">
-                <form action="/enterFood" method="post">
-                    <table class="hydQuestion">
+                <h3 class="header">Enter Food</h3>
+                <div class="survey">
+                    <form action="/enterFood" method="post">
+                        <table class="hydQuestion">
                         <c:forEach var="attr" items="${fields}">
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
+                        <!--<tr>
+                            <td><label>Purchase Date <input type="date" name="Purchase Date"/></label></td>
+                        </tr>
+                        <tr>
+                            <td><label>Expiration Date <input type="date" name="Expire Date"/></label></td>
+                        </tr>-->
+
                         <tr>
                             <td><input type="submit" value="Save Food"></td>
                         </tr>

@@ -5,6 +5,7 @@ import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
+import java.util.Date;
 
 @Entity
 public class InventoryItem {
@@ -19,9 +20,9 @@ public class InventoryItem {
     @Index
     private Double price;
     @Index
-    private String purchaseDate;
+    private Date purchaseDate;
 
-    public InventoryItem(String description, Double price, String purchasedate) {
+    public InventoryItem(String description, Double price, Date purchasedate) {
         this.description = description;
         this.price = price;
         this.purchaseDate = purchaseDate;
@@ -50,11 +51,11 @@ public class InventoryItem {
         this.price = price;
     }
 
-    public String getPurchaseDate() {
+    public Date getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(String purchaseDate) {
+    public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 

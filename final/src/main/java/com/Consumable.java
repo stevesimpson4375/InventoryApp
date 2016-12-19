@@ -2,6 +2,7 @@ package com;
 
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.util.Date;
 
 @Subclass(index=true)
 public class Consumable extends InventoryItem{
@@ -9,7 +10,7 @@ public class Consumable extends InventoryItem{
     @Index private Double amount;
     @Index private String amountType;
     
-    public Consumable(String description, Double price, String purchaseDate,
+    public Consumable(String description, Double price, Date purchaseDate,
             Double amount, String amountType){
         super(description, price, purchaseDate);
         this.amount = amount;

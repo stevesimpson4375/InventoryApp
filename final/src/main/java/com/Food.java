@@ -8,13 +8,13 @@ import java.text.*;
 @Subclass(index=true)
 public class Food extends Consumable{
     
-    @Index private String expireDate;
+    @Index private Date expireDate;
     
     private static String[] fields = { "Description", "Price", "Purchase Date",
-        "Expire Date", "Amount", "Amount Type"};
+        "Expiration Date", "Amount", "Amount Type"};
     
-    public Food(String description, Double price, String purchaseDate,
-            String expireDate, Double amount, String amountType){
+    public Food(String description, Double price, Date purchaseDate,
+            Date expireDate, Double amount, String amountType){
         super(description, price, purchaseDate, amount, amountType);
         this.expireDate = expireDate;
     }
@@ -25,11 +25,11 @@ public class Food extends Consumable{
         return fields;
     }
     
-    public String getExpireDate() {
+    public Date getExpireDate() {
         return expireDate;
     }
 
-    public void setExpireDate(String exipreDate) {
+    public void setExpireDate(Date exipreDate) {
         this.expireDate = exipreDate;
     }
     

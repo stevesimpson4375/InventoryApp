@@ -10,6 +10,8 @@ import java.util.List;
 
 public class Util {
 
+    /* The datastore class contains everything needed for working with Google's
+        Ojectify */
     public static class datastore {
 
         public static void saveThing(InventoryItem thing) {
@@ -55,8 +57,12 @@ public class Util {
             ofy().delete().type(InventoryItem.class).id(id).now();
         }
         
+        /* The searches used by the ap are all found here */
         public static class search{
             
+            /* The search type is determined by the attribute selected by the
+                user in the browser. The searchTypeResolver accesses the 
+                appropriate search method. */
             public static InventoryItem[] searchTypeResolver(String searchBy, 
                     String searchValue){
             InventoryItem[] results;
@@ -72,6 +78,10 @@ public class Util {
                 }
                 return results;
             }
+            
+            
+            /* The searches return arrays since List types require a function
+                to access fields, which browsers cannot use */
             
             public static InventoryItem[] byDescription(String description){                
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
@@ -102,6 +112,7 @@ public class Util {
         }
     }
 
+    // This class registers the DAO classes with Objectify
     public static class setup {
 
         public static void classRegister() {
