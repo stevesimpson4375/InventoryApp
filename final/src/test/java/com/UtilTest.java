@@ -34,7 +34,23 @@ public class UtilTest {
     }
 
     @Test
-    public void testSaveThing() {       
+    public void testSaveThing() throws InterruptedException {
+        Util.datastore.saveThing(TestUtilities.createFood());
+        Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
+        InventoryItem[] results = Util.datastore.search.byDescription(TestUtilities.
+                createFood().getDescription());
+        assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        Util.datastore.deleteAll();
+    }
+    
+    @Test
+    public void testSaveFood() throws InterruptedException{
+        Util.datastore.saveFood(TestUtilities.createFood());
+        Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
+        InventoryItem[] results = Util.datastore.search.byDescription(TestUtilities.
+                createFood().getDescription());
+        assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        Util.datastore.deleteAll();
     }
     
     @Test
@@ -78,10 +94,40 @@ public class UtilTest {
     }
     
     @Test
-    public void testByPrice(){
+    public void testByPrice() throws InterruptedException{
+        Util.datastore.saveThing(TestUtilities.createFood());
+        Thread.sleep(TestUtilities.getThreadWait());
+        InventoryItem[] results = Util.datastore.search.byPrice(TestUtilities.
+                createFood().getPrice());
+        assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        Util.datastore.deleteAll();
     }
     
     @Test
-    public void testByPurchaseDate(){
+    public void testByPurchaseDate() throws InterruptedException{
+        Util.datastore.saveThing(TestUtilities.createFood());
+        Thread.sleep(TestUtilities.getThreadWait());
+        InventoryItem[] results = Util.datastore.search.byPurchaseDate(TestUtilities.
+                createFood().getPurchaseDate());
+        assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        Util.datastore.deleteAll();
+    }
+    
+    @Test
+    public void testByEpireDate() throws InterruptedException{
+        Util.datastore.saveFood(TestUtilities.createFood());
+        Thread.sleep(TestUtilities.getThreadWait());
+        Food[] results = Util.datastore.search.byExpireDate(TestUtilities.
+                createFood().getExpireDate());
+        assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        Util.datastore.deleteAll();
+    }
+    
+    public void testByApplianceType() throws InterruptedException{
+        Util.datastore.saveThing(TestUtilities.createAppliance());
+        Thread.sleep(TestUtilities.getThreadWait());
+        Appliance[] results = Util.datastore.search.byApplianceType(TestUtilities.
+                createAppliance().getType());
+        assertEquals(results[0].toString(), TestUtilities.createAppliance().toString());
     }
 }

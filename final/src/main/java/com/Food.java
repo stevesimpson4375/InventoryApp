@@ -8,7 +8,8 @@ import java.text.*;
 @Subclass(index=true)
 public class Food extends Consumable{
     
-    @Index private Date expireDate;
+    @Index
+    private Date expireDate;
     
     private static String[] fields = { "Description", "Price", "Purchase Date",
         "Expiration Date", "Amount", "Amount Type"};

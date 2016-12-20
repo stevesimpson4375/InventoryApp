@@ -22,6 +22,10 @@ public class Util {
         public static void saveThing(InventoryItem thing) {
             ofy().save().entity(thing);
         }
+        
+        public static void saveFood(Food food){
+            ofy().save().entity(food);
+        }
 
         public static Query<InventoryItem> retreiveAll() {
             Query<InventoryItem> all;
@@ -124,6 +128,28 @@ public class Util {
                         .filter("purchaseDate", date).list();
                 InventoryItem[] results = new InventoryItem[temp.size()];
                 for (int i = 0; i < results.length; i++) {
+                    results[i] = temp.get(i);
+                }
+                return results;
+            }
+            
+            // Food only searches
+            public static Food[] byExpireDate(Date date){
+                List<Food> temp = ofy().load().type(Food.class).filter(
+                        "expireDate", date).list();
+                Food[] results = new Food[temp.size()];
+                for(int i = 0; i < results.length; i++){
+                    results[i] = temp.get(i);
+                }
+                return results;
+            }
+            
+            // Appliance only searches
+            public static Appliance[] byApplianceType(String type){
+                List<Appliance> temp = ofy().load().type(Appliance.class).filter(
+                    "type", type).list();
+                Appliance[] results = new Appliance[temp.size()];
+                for(int i = 0; i < results.length; i++){
                     results[i] = temp.get(i);
                 }
                 return results;

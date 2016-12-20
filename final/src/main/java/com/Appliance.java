@@ -13,6 +13,7 @@ public class Appliance extends Durable{
     static private String[] fields = { "Description", "Price", "Purchase Date",
         "Material", "Weight (in kg)"};
     
+    @Index
     private String type;
     
     public Appliance(String description, Double price, Date purchaseDate,

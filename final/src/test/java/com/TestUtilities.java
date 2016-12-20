@@ -45,5 +45,21 @@ public class TestUtilities {
         }
         return food;
     }
+    
+    public static Appliance createAppliance(){
+        String[] attributes = getApplianceAttributes();
+        SimpleDateFormat df = new SimpleDateFormat("yyy-MM-dd");
+        Appliance appliance;
+        try {
+            return new Appliance(attributes[0], Double.parseDouble(attributes[1]),
+                    df.parse(attributes[2]), attributes[3],
+                    Double.parseDouble(attributes[4]), attributes[5]);
+        } catch (ParseException ex) {
+            Logger.getLogger(TestUtilities.class.getName()).log(Level.SEVERE, null, ex);
+            appliance = new Appliance();
+        }
+        
+        return appliance;
+    }
 }
         
