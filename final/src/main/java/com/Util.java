@@ -5,8 +5,13 @@ import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 import com.googlecode.objectify.cmd.Query;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Util {
 
@@ -23,7 +28,7 @@ public class Util {
             all = ofy().load().type(InventoryItem.class);
             return all;
         }
-        
+
         public static ArrayList<InventoryItem> retreiveAllArrayList() {
             Query<InventoryItem> all = ofy().load().type(InventoryItem.class);
             ArrayList<InventoryItem> itemList = new ArrayList<>();
@@ -32,12 +37,14 @@ public class Util {
             }
             return itemList;
         }
-        
-        public static ArrayList<String> retrieveDescriptions(){
-            
+
+        public static ArrayList<String> retrieveDescriptions() {
+
             Query<InventoryItem> results = retreiveAll();
             ArrayList<String> items = new ArrayList<>();
-                for (InventoryItem i : results) { items.add(i.toString());}
+            for (InventoryItem i : results) {
+                items.add(i.toString());
+            }
             return items;
         }
 
@@ -52,61 +59,73 @@ public class Util {
         public static void deleteEntity(InventoryItem item) {
             ofy().delete().entity(item).now();
         }
-        
-        public static void deleteById(Long id){
+
+        public static void deleteById(Long id) {
             ofy().delete().type(InventoryItem.class).id(id).now();
         }
-        
-        /* The searches used by the ap are all found here */
-        public static class search{
-            
+
+        /* The searches used by the app are all found here */
+        public static class search {
+
             /* The search type is determined by the attribute selected by the
                 user in the browser. The searchTypeResolver accesses the 
                 appropriate search method. */
-            public static InventoryItem[] searchTypeResolver(String searchBy, 
-                    String searchValue){
-            InventoryItem[] results;
-                switch(searchBy){
+            public static InventoryItem[] searchTypeResolver(String searchBy,
+                    String searchValue) {
+                InventoryItem[] results;
+                switch (searchBy) {
                     case "Description":
                         results = byDescription(searchValue);
                         break;
                     case "Price":
                         results = byPrice(Double.parseDouble(searchValue));
                         break;
+                    case "Purchase Date":
+                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                         {
+                            try {
+                                results = byPurchaseDate(df.parse(searchValue));
+                            } catch (ParseException ex) {
+                                Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
+                                results = new InventoryItem[1];
+                            }
+                        }
+                         break;
                     default:
-                        results =  new InventoryItem[1];
+                        results = new InventoryItem[1];
                 }
                 return results;
             }
-            
-            
+
             /* The searches return arrays since List types require a function
                 to access fields, which browsers cannot use */
-            
-            public static InventoryItem[] byDescription(String description){                
+            public static InventoryItem[] byDescription(String description) {
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
                         .filter("description", description).list();
                 InventoryItem[] results = new InventoryItem[temp.size()];
-                    for(int i = 0; i < temp.size(); i++){
-                        results[i] = temp.get(i);
-                    }
+                for (int i = 0; i < temp.size(); i++) {
+                    results[i] = temp.get(i);
+                }
                 return results;
             }
-            
-            public static InventoryItem[] byPrice(double price){
+
+            public static InventoryItem[] byPrice(double price) {
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
                         .filter("price", price).list();
                 InventoryItem[] results = new InventoryItem[temp.size()];
-                    for(int i = 0; i < temp.size(); i++){
-                        results[i] = temp.get(i);
-                    }
-                    return results;
+                for (int i = 0; i < temp.size(); i++) {
+                    results[i] = temp.get(i);
+                }
+                return results;
             }
-            
-            public static ArrayList<InventoryItem> byPurchaseDate(String date){
-                    List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
-                            .filter("purchaseDate", date).list();
-                    ArrayList<InventoryItem> results = new ArrayList<>(temp.size());
+
+            public static InventoryItem[] byPurchaseDate(Date date) {
+                List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
+                        .filter("purchaseDate", date).list();
+                InventoryItem[] results = new InventoryItem[temp.size()];
+                for (int i = 0; i < results.length; i++) {
+                    results[i] = temp.get(i);
+                }
                 return results;
             }
         }

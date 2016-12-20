@@ -20,7 +20,9 @@
     <body> 
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
-                <h3 class="header">Enter Search Criteria Below</h3>
+                <h2 class="header">Enter Search Criteria Below</h2>
+                <br />
+                <h3 class="header">General Searches</h3>
                 <div class="survey">
                     <table class="hydQuestion">
                         <form action="/SearchBy" method="post">
@@ -29,12 +31,18 @@
                         <form action="/SearchBy" method="post">
                         <h:searchEnter searchBy="Price"></h:searchEnter>
                         </form>
-                        <form action="/SearchByPurchaseDate" mothod="post">
+                        <form action="/SearchBy" mothod="post">
                         <h:searchEnter searchBy="Purchase Date"></h:searchEnter>
                         </form>
                     </table>
                 </div>
-
+                <br />
+                <h3 class="header">Food Only Searches</h3>
+                <div class="survey">
+                    <table class="dhydQuestion">
+                        
+                    </table>
+                </div>
 
                 <hr />
                 <div class="survey">

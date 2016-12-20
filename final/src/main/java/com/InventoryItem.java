@@ -22,7 +22,7 @@ public class InventoryItem {
     @Index
     private Date purchaseDate;
 
-    public InventoryItem(String description, Double price, Date purchasedate) {
+    public InventoryItem(String description, Double price, Date purchaseDate) {
         this.description = description;
         this.price = price;
         this.purchaseDate = purchaseDate;

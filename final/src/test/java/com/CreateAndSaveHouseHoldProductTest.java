@@ -48,7 +48,7 @@ public class CreateAndSaveHouseHoldProductTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveHouseHoldProduct instance = new CreateAndSaveHouseHoldProduct();
         String[] fields = HouseHoldProduct.getFields();
-        String [] attributes = testUtil.getHouseHoldProductAttributes();
+        String [] attributes = TestUtilities.getHouseHoldProductAttributes();
         when(request.getParameter(fields[0])).thenReturn(attributes[0]);
         when(request.getParameter(fields[1])).thenReturn(attributes[1]);
         when(request.getParameter(fields[2])).thenReturn(attributes[2]);
@@ -63,7 +63,7 @@ public class CreateAndSaveHouseHoldProductTest {
         assertEquals("/enterHouseHoldProductsPage.jsp?productName=" + 
                 attributes[0], captor.getValue());
 
-        Thread.sleep(3000); // Saving to the datastore is not always instant
+        Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
         
         InventoryItem[] results = Util.datastore.search.byDescription(attributes[0]);
         System.out.println(results.length); // This confirms that the item was saved and retrieved

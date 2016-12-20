@@ -1,11 +1,18 @@
 <%@tag description="Search Enter" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@attribute name="searchBy"%>
 
 <tr>
     <td>${searchBy}</td>
-    <td><input type="text" name="searchValue"></td>
+    <c:choose>
+        <c:when test="${searchBy == 'Purchase Date' || searchBy == 'Expiration Date'}">
+            <td><input type="date" name="searchValue"></td>
+        </c:when>
+        <c:otherwise>
+            <td><input type="text" name="searchValue"></td>
+        </c:otherwise> 
+    </c:choose>
     <td><input type="submit" value="Search"></td>
-    <input type="hidden" name="searchedBy" value="${searchBy}" />
+<input type="hidden" name="searchedBy" value="${searchBy}" />
 </tr>
-

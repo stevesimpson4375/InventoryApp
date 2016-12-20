@@ -46,7 +46,7 @@ public class CreateAndSaveFoodTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveFood instance = new CreateAndSaveFood();
         String[] fields = Food.getFields();
-        String[] attributes = testUtil.getFoodAttributes();
+        String[] attributes = TestUtilities.getFoodAttributes();
         when(request.getParameter(fields[0])).thenReturn(attributes[0]);
         when(request.getParameter(fields[1])).thenReturn(attributes[1]);
         when(request.getParameter(fields[2])).thenReturn(attributes[2]);
@@ -60,7 +60,7 @@ public class CreateAndSaveFoodTest {
         verify(response).sendRedirect(captor.capture());
         assertEquals("/enterFoodPage.jsp?foodName=" + attributes[0], captor.getValue());
 
-        Thread.sleep(3000); // Saving to the datastore is not always instant
+        Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
         
         Query<InventoryItem> all = Util.datastore.retreiveAll();
         InventoryItem[] results = Util.datastore.search.byDescription(attributes[0]);

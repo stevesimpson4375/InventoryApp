@@ -46,7 +46,7 @@ public class CreateAndSaveApplianceTest {
         HttpServletResponse response = mock(HttpServletResponse.class);
         CreateAndSaveAppliance instance = new CreateAndSaveAppliance();
         String[] fields = Appliance.getFields();
-        String[] attributes = testUtil.getApplianceAttributes();
+        String[] attributes = TestUtilities.getApplianceAttributes();
         when(request.getParameter(fields[0])).thenReturn(attributes[0]);
         when(request.getParameter(fields[1])).thenReturn(attributes[1]);
         when(request.getParameter(fields[2])).thenReturn(attributes[2]);
@@ -61,7 +61,7 @@ public class CreateAndSaveApplianceTest {
         assertEquals("/enterAppliancePage.jsp?applianceName=Oster Bread Machine",
                 captor.getValue());
 
-        Thread.sleep(3000); // Saving to the datastore is not always instant
+        Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
         
         Query<InventoryItem> all = Util.datastore.retreiveAll();
         for (InventoryItem q : all) {
