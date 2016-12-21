@@ -17,7 +17,6 @@
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Delete All</h3>
-
                 <div class="survey">
                     <table class="hydQuestion">
                         <form action="/deleteAll" method="post">
@@ -25,8 +24,6 @@
                         </form>
                     </table>
                 </div>
-            </div>
-
             <h:backToHomePage></h:backToHomePage>
         </div>
     </body>

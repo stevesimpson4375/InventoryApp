@@ -11,11 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
         <title>Search Page</title>
-
-        <%
-            ArrayList<String> items = Util.datastore.retrieveDescriptions();
-            request.setAttribute("items", items);
-        %>
     </head>
     <body> 
         <div id="container">
@@ -39,35 +34,18 @@
                 <br />
                 <h3 class="header">Food Only Searches</h3>
                 <div class="survey">
-                    <table class="dhydQuestion">
-                        
+                    <table class="hydQuestion">
+                    <form action="/SearchBy" method="post">
+                        <h:searchEnter searchBy="Expiration Date"></h:searchEnter>
+                    </form>
                     </table>
                 </div>
-
-                <hr />
+                <h3 class="header">Household Item Only Searches</h3>
                 <div class="survey">
                     <table class="hydQuestion">
-                    <c:forEach var="i" items="${items}">
-                        <tr><td><p>${i}</p></td></tr>
-                    </c:forEach>
-                </table>
-                <br />
-                <div class="survey">
-                    <table class="hydQuestion">
-                        <form action="/deleteAll" method="post">
-                            <tr><td><input type="submit" value="Delete All Records"></td></tr>
-                        </form>
-                    </table>
+                    <h:searchEnter searchBy="Household Product Type"></h:searchEnter>
+                    </table>                 
                 </div>
-            </div>
-            <%
-                if (items == null) {
-            %>
-            <p class="header">Database Empty!</p>
-            <%
-                }
-            %>
-
             <h:backToHomePage></h:backToHomePage>
         </div>
     </body>

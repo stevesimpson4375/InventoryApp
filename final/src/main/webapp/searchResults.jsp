@@ -27,8 +27,11 @@
                             <input type="hidden" name="searchValue" value="${searchValue}" />
                     </table>
                 </form>
-                            <p>${searchedBy}</p>
-                            <p>${searchValue}</p>
+                <c:choose>
+                    <c:when test="${fn:length(results) == 0}">
+                        <p>Search returned no results!</p>
+                    </c:when>
+                </c:choose>
             </div>
 
             <h:backToHomePage></h:backToHomePage>

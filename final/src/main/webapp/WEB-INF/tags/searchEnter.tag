@@ -14,5 +14,5 @@
         </c:otherwise> 
     </c:choose>
     <td><input type="submit" value="Search"></td>
-<input type="hidden" name="searchedBy" value="${searchBy}" />
+    <input type="hidden" name="searchedBy" value="${searchBy}" />
 </tr>

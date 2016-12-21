@@ -5,6 +5,7 @@ import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import com.googlecode.objectify.ObjectifyService;
 import java.io.Closeable;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -87,8 +88,8 @@ public class UtilTest {
         
         Util.datastore.saveThing(TestUtilities.createFood());
         Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
-        InventoryItem[] results = Util.datastore.search.byDescription(TestUtilities.
-                createFood().getDescription());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(
+                "Description", TestUtilities.createFood().getDescription());
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
@@ -97,8 +98,8 @@ public class UtilTest {
     public void testByPrice() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createFood());
         Thread.sleep(TestUtilities.getThreadWait());
-        InventoryItem[] results = Util.datastore.search.byPrice(TestUtilities.
-                createFood().getPrice());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver("Price",
+                TestUtilities.createFood().getPrice().toString());
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
@@ -106,9 +107,10 @@ public class UtilTest {
     @Test
     public void testByPurchaseDate() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createFood());
+        SimpleDateFormat df = Util.getDateFormat();
         Thread.sleep(TestUtilities.getThreadWait());
-        InventoryItem[] results = Util.datastore.search.byPurchaseDate(TestUtilities.
-                createFood().getPurchaseDate());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(
+                "Purchase Date", df.format(TestUtilities.createFood().getPurchaseDate()));
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
@@ -116,9 +118,11 @@ public class UtilTest {
     @Test
     public void testByEpireDate() throws InterruptedException{
         Util.datastore.saveFood(TestUtilities.createFood());
+        SimpleDateFormat df = Util.getDateFormat();
         Thread.sleep(TestUtilities.getThreadWait());
-        Food[] results = Util.datastore.search.byExpireDate(TestUtilities.
-                createFood().getExpireDate());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(
+                "Expiration Date", df.format(TestUtilities.createFood().
+                        getExpireDate()));
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
@@ -126,8 +130,17 @@ public class UtilTest {
     public void testByApplianceType() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createAppliance());
         Thread.sleep(TestUtilities.getThreadWait());
-        Appliance[] results = Util.datastore.search.byApplianceType(TestUtilities.
-                createAppliance().getType());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(
+                "Appliance Type", TestUtilities.createAppliance().getType());
         assertEquals(results[0].toString(), TestUtilities.createAppliance().toString());
+    }
+    
+    public void testByHouseHoldType() throws InterruptedException{
+        Util.datastore.saveThing(TestUtilities.createHouseHoldProduct());
+        Thread.sleep(TestUtilities.getThreadWait());
+        InventoryItem[] results = Util.datastore.search.searchTypeResolver(
+                "Household Product Type", TestUtilities.createHouseHoldProduct()
+                        .getType());
+        assertEquals(results[0].toString(), TestUtilities.createHouseHoldProduct().toString());
     }
 }

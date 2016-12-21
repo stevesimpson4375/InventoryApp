@@ -19,23 +19,27 @@
                         <td><button id="houseHoldProductsButton">Enter Household Item</button></td>
                         <td><button id="applianceButton">Enter Appliance</button></td>
                         <td><button id="searchButton">Search Data</button></td>
+                        <td><button id="showAllButton">See Everything You Have</button>
                     </tr>
                 </table>
             </div>
             <br />
             <script type="text/javascript">
-                document.getElementById("foodButton").onclick = function () {
+                document.getElementById("foodButton").onclick = function(){
                     location.href = "/enterFoodPage.jsp";
                 };
-                document.getElementById("houseHoldProductsButton").onclick = function () {
+                document.getElementById("houseHoldProductsButton").onclick = function(){
                     location.href = "/enterHouseHoldProductsPage.jsp";
                 };
-                document.getElementById("applianceButton").onclick = function () {
+                document.getElementById("applianceButton").onclick = function(){
                     location.href = "/enterAppliancePage.jsp";
                 };
-                document.getElementById("searchButton").onclick = function () {
+                document.getElementById("searchButton").onclick = function(){
                     location.href = "/searchPage.jsp";
                 };
+                document.getElementById("showAllButton").onclick = function(){
+                    location.href = "/showAll.jsp";
+                }
             </script>
         </div>
     </body>

@@ -14,6 +14,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Util {
+    
+    public static SimpleDateFormat getDateFormat(){
+        return new SimpleDateFormat("yyyy-MM-dd");
+    }
 
     /* The datastore class contains everything needed for working with Google's
         Ojectify */
@@ -77,6 +81,7 @@ public class Util {
             public static InventoryItem[] searchTypeResolver(String searchBy,
                     String searchValue) {
                 InventoryItem[] results;
+                SimpleDateFormat df = Util.getDateFormat();
                 switch (searchBy) {
                     case "Description":
                         results = byDescription(searchValue);
@@ -84,17 +89,32 @@ public class Util {
                     case "Price":
                         results = byPrice(Double.parseDouble(searchValue));
                         break;
-                    case "Purchase Date":
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                         {
+                    case "Purchase Date":                                         
                             try {
                                 results = byPurchaseDate(df.parse(searchValue));
                             } catch (ParseException ex) {
                                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
                                 results = new InventoryItem[1];
                             }
-                        }
-                         break;
+
+                        break;
+                    case "Expiration Date":                      
+                            try {
+                                results = byExpireDate(df.parse(searchValue));
+                            } catch (ParseException ex) {
+                                Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
+                                results = new InventoryItem[1];
+                            }
+
+                        break;
+                    case "Appliance Type":                        
+                            results = byApplianceType(searchValue);                      
+                        break;
+                        
+                    case "Household Product Type":                        
+                            results = byApplianceType(searchValue);                      
+                        break;
+
                     default:
                         results = new InventoryItem[1];
                 }
@@ -149,6 +169,18 @@ public class Util {
                 List<Appliance> temp = ofy().load().type(Appliance.class).filter(
                     "type", type).list();
                 Appliance[] results = new Appliance[temp.size()];
+                for(int i = 0; i < results.length; i++){
+                    results[i] = temp.get(i);
+                }
+                return results;
+            }
+            
+            // House Hold Products searches
+            public static HouseHoldProduct[] byHouseHoldProductType(String type){
+                List<HouseHoldProduct> temp = ofy().load().type(HouseHoldProduct.
+                        class).filter(
+                    "type", type).list();
+                HouseHoldProduct[] results = new HouseHoldProduct[temp.size()];
                 for(int i = 0; i < results.length; i++){
                     results[i] = temp.get(i);
                 }

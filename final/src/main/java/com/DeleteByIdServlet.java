@@ -14,23 +14,9 @@ public class DeleteByIdServlet extends HttpServlet {
 
         Util.datastore.deleteById(Long.parseLong(request.getParameter("selected")));
         
-        String forwardUrl = null;
-        String searchedBy = null;
-        
-        switch(request.getParameter("searchedBy")){
-            case "Description":
-                forwardUrl = "/SearchBy";
-                searchedBy = "Description";
-                break;
-            case "Price":
-                forwardUrl = "/SearchBy";
-                searchedBy = "Price";
-                break;
-        }
-        
         request.setAttribute("searchValue", request.getParameter("searchValue"));
-        request.setAttribute("searchedBy", searchedBy);
-        request.setAttribute("forwardUrl", forwardUrl);
+        request.setAttribute("searchedBy", request.getParameter("searchedBy"));
+        request.setAttribute("forwardUrl", "/SearchBy");
         RequestDispatcher view = request.getRequestDispatcher("/deleteJump.jsp");
 	view.forward(request, response);
     }

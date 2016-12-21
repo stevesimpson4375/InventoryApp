@@ -14,7 +14,7 @@ public class CreateAndSaveFood extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String[] foodFields = Food.getFields();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = Util.getDateFormat();
         try {
             Food newFood = new Food(req.getParameter(foodFields[0]),
                     Double.parseDouble(req.getParameter(foodFields[1])),

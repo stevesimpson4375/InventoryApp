@@ -18,7 +18,8 @@ public class SearchBy extends HttpServlet {
         InventoryItem[] results = Util.datastore.search.searchTypeResolver(request.
                 getParameter("searchedBy"), request.getParameter("searchValue"));
         
-        Long[] Ids = new Long[results.length];
+        Long[] Ids = new Long[results.length]; /* Ids are used to provide buttons
+            to select individual records */
         
         for(int i = 0; i < results.length; i++){
             Ids[i] = results[i].getId();

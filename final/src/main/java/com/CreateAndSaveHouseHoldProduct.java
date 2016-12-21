@@ -14,7 +14,7 @@ public class CreateAndSaveHouseHoldProduct extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String[] fields = HouseHoldProduct.getFields();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = Util.getDateFormat();
         try {
             HouseHoldProduct newProduct = new HouseHoldProduct(req.getParameter(fields[0]),
                     Double.parseDouble(req.getParameter(fields[1])),

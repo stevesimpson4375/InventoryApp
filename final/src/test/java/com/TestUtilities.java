@@ -33,7 +33,7 @@ public class TestUtilities {
     
     public static Food createFood(){
         String[] attributes = getFoodAttributes();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = Util.getDateFormat();
         Food food;
         try {
             return new Food(attributes[0], Double.parseDouble(attributes[1]),
@@ -46,9 +46,25 @@ public class TestUtilities {
         return food;
     }
     
+    public static HouseHoldProduct createHouseHoldProduct(){
+        String[] attributes = getHouseHoldProductAttributes();
+        SimpleDateFormat df = Util.getDateFormat();
+        HouseHoldProduct houseHoldProduct;
+        try{
+            return new HouseHoldProduct(attributes[0], Double.parseDouble(
+                attributes[1]), df.parse(attributes[2]), Double.parseDouble(
+                    attributes[3]), attributes[4], attributes[5]);
+        }
+        catch(ParseException ex){
+            Logger.getLogger(TestUtilities.class.getName()).log(Level.SEVERE, null, ex);
+            houseHoldProduct = new HouseHoldProduct();
+        }
+        return houseHoldProduct;
+    }
+    
     public static Appliance createAppliance(){
         String[] attributes = getApplianceAttributes();
-        SimpleDateFormat df = new SimpleDateFormat("yyy-MM-dd");
+        SimpleDateFormat df = Util.getDateFormat();
         Appliance appliance;
         try {
             return new Appliance(attributes[0], Double.parseDouble(attributes[1]),

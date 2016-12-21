@@ -26,15 +26,15 @@
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
                         <tr>
-                            <td><label>Type of Product</label>
-                                <select name="type">
+                            <td>Type of Product</td>
+                            <td><select name="type">
                                     <c:forEach var="i" items="${typeStrings}">
                                         <option value="${i}">${i}</option>
                                     </c:forEach>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Save Appliance"></td>
+                            <td></td><td><input type="submit" value="Save Appliance"></td>
                         </tr>
                     </table>
                 </form>
