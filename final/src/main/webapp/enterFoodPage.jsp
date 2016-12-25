@@ -9,6 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
+        <script type="text/javascript" src="script.js"></script>
         <title>Enter Food Page</title>
     </head>
 
@@ -26,15 +27,8 @@
                         <c:forEach var="attr" items="${fields}">
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
-                        <!--<tr>
-                            <td><label>Purchase Date <input type="date" name="Purchase Date"/></label></td>
-                        </tr>
                         <tr>
-                            <td><label>Expiration Date <input type="date" name="Expire Date"/></label></td>
-                        </tr>-->
-
-                        <tr>
-                            <td><input type="submit" value="Save Food"></td>
+                            <td></td><td><input type="submit" value="Save Food"></td>
                         </tr>
                     </table>
                 </form>

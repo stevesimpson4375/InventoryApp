@@ -20,7 +20,7 @@
                     <form action="/DeleteByIdServlet" method="post">
                         <table class="hydQuestion">
                         <c:forEach var="i" items="${results}" varStatus="loop">
-                            <tr><td>${i}</td><td><button type="submit" name="selected" 
+                            <tr><td>${fn:escapeXml(i)}</td><td><button type="submit" name="selected" 
                                 value="${ids[loop.index]}">Delete</button></td></tr>
                                     </c:forEach>
                             <input type="hidden" name="searchedBy" value="${searchedBy}" />
