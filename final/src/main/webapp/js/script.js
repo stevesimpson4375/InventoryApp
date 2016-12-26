@@ -1,18 +1,34 @@
-$(document).ready(function(){    
-    $("input[name='Price']").blur(function(){
-        if( $("input[name='Price']").val() !== "" && !$.isNumeric($("input[name='Price']").val())){
-            $("td[name='Price']").removeClass("hidden").addClass("red");
+$(document).ready(function(){
+    var $inputPrice = $("input[id='Price']");
+    var $tdPrice = $("td[name='Price']");
+    $inputPrice.keyup(function(){
+        if($inputPrice.val() !== "" && !$.isNumeric($inputPrice.val())){
+            $tdPrice.removeClass("hidden").addClass("red");
         }
         else{
-            $("td[name='Price']").addClass("hidden");
+            $tdPrice.addClass("hidden");
         }
     });
-    $("input[name='Amount']").blur(function(){
-        if($("input[name='Amount']").val() !== "" && !$.isNumeric($("input[name='Amount']").val())){
-            $("td[name='Amount']").removeClass("hidden").addClass("red");
+    
+    var $inputAmount = $("input[id='Amount']");
+    var $tdAmount = $("td[name='Amount']");
+    $inputAmount.keyup(function(){
+        if($inputAmount.val() !== "" && !$.isNumeric($inputAmount.val())){
+            $tdAmount.removeClass("hidden").addClass("red");
         }
         else{
-            $("td[name='Amount']").addClass("hidden");
+            $tdAmount.addClass("hidden");
+        }
+    });
+    
+    var $inputWeight = $("input[id='Weight (in kg)']");
+    var $tdWeight = $("td[name='Weight (in kg)']");
+    $inputWeight.keyup(function(){
+        if($inputWeight.val() !== "" && !$.isNumeric($inputWeight.val())){
+            $tdWeight.removeClass("hidden").addClass("red");
+        }
+        else{
+            $tdWeight.addClass("hidden");
         }
     });
 });

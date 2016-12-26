@@ -12,9 +12,6 @@ public class SearchBy extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // The double is declared and assigned to eliminate calling parseDouble more than once
-        //Double searchValue = Double.parseDouble(request.getParameter("searchValue"));
-        
         InventoryItem[] results = Util.datastore.search.searchTypeResolver(request.
                 getParameter("searchedBy"), request.getParameter("searchValue"));
         
