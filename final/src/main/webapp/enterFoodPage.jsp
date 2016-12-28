@@ -29,7 +29,7 @@
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
                         <tr>
-                            <td></td><td><input type="submit" value="Save Food"></td>
+                            <td></td><td><input type="submit" value="Save Food" class="createButton"></td>
                         </tr>
                     </table>
                 </form>

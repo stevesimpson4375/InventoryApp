@@ -7,11 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
-        <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">        
+        <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
         <title>Enter Appliance</title>
 
         <%
-            request.setAttribute("typeStrings", Appliance.getValidTypes());
+            request.setAttribute("typeStrings", Util.getValidApplianceTypes());
             request.setAttribute("fields", Appliance.getFields());
         %>
     </head>
@@ -34,7 +36,7 @@
                                 </select></td>
                         </tr>
                         <tr>
-                            <td></td><td><input type="submit" value="Save Appliance"></td>
+                            <td></td><td><input type="submit" value="Save Appliance" class="createButton"></td>
                         </tr>
                     </table>
                 </form>

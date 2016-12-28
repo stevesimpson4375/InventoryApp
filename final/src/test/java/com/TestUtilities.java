@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class TestUtilities {
     
-    private static int threadWait = 3000;
+    private static int threadWait = 1000;
 
     public static int getThreadWait() {
         return threadWait;

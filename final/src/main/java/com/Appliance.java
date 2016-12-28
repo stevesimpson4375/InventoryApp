@@ -6,9 +6,6 @@ import java.util.Date;
 
 @Subclass(index=true)
 public class Appliance extends Durable{
-
-    static private String[] validTypes = { "Bread Machine", "Crock Pot", "Oven" ,
-        "Refrigerator", "Toaster Oven" };
     
     static private String[] fields = { "Description", "Price", "Purchase Date",
         "Material", "Weight (in kg)"};
@@ -24,10 +21,6 @@ public class Appliance extends Durable{
     }
     
     public Appliance(){}
-        
-    static public String[] getValidTypes() {
-        return validTypes;
-    }
 
     public static String[] getFields() {
         return fields;

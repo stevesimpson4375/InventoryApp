@@ -18,6 +18,13 @@ public class Util {
     public static SimpleDateFormat getDateFormat(){
         return new SimpleDateFormat("yyyy-MM-dd");
     }
+    
+    public static String[] getValidApplianceTypes(){
+        return new String[] {"Air Conditioner", "Air Fryer", "Bread Machine", "Clothes Dryer",
+            "Coffee Maker", "Dish Washer", "Deep Fryer", "Espresso Machine", "Garbage Disposal",
+            "Microwave", "Oven", "Refridgerator", "Sewing Machine", "Sump Pump",
+            "Toaster", "Washing Machine", "Water Heater"};
+    }
 
     /* The datastore class contains everything needed for working with Google's
         Ojectify */
