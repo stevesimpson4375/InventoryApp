@@ -48,4 +48,10 @@ $(document).ready(function () {
             }
         }
     });
+    
+    $(".searchButton").click(function (event) {
+        if(!$.isNumeric($("input[id='Price']").val())){
+            event.preventDefault();
+        }
+    });
 });

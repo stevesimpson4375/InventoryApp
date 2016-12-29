@@ -2,6 +2,7 @@ package com;
 
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Subclass(index=true)
@@ -37,5 +38,13 @@ public class HouseHoldProduct extends Consumable{
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+    @Override
+    public String toString() {
+        SimpleDateFormat df = Util.getDateFormat();
+        return "This is: " + getDescription() + ", it costs " + getPrice() + 
+                ", it was purchased " + df.format(getPurchaseDate()) + ", and you have " +
+                getAmount() + " " + getAmountType();
     }
 }

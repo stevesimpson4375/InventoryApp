@@ -2,6 +2,7 @@ package com;
 
 import com.googlecode.objectify.annotation.Subclass;
 import com.googlecode.objectify.annotation.Index;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Subclass(index=true)
@@ -32,5 +33,12 @@ public class Appliance extends Durable{
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+    public String toString() {
+        SimpleDateFormat df = Util.getDateFormat();
+        return "This is: " + getDescription() + ", it costs " + getPrice() + 
+                ", it was purchased " + df.format(getPurchaseDate()) + ", it is made of " +
+                getMaterial() + ", and it wieghs " + getWeight() + " kg";
     }
 }

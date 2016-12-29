@@ -37,7 +37,9 @@ public class Food extends Consumable{
     @Override
     public String toString() {
         SimpleDateFormat df = Util.getDateFormat();
-        return "This is: " + getDescription() + " and it expires " + 
+        return "This is: " + getDescription() + ", it costs " + getPrice() + 
+                ", it was purchased " + df.format(getPurchaseDate()) + ", you have " +
+                getAmount() + " " + getAmountType() + ", and it expires " + 
                 df.format(getExpireDate());
     }
 }
