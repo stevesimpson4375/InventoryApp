@@ -6,11 +6,13 @@
 <c:choose>
     <c:when test="${field == 'Purchase Date' || field == 'Expiration Date'}">
         <tr>
-            <td>${field}</td><td><input type='date' name="${field}" required="true" id="field"></td>
+            <td>${field}</td><td><input type='test' name="${field}" required="true"
+                                        id="${field}" class="datepicker" readonly="readonly"></td>
             <td><label name="${field}"></label></td>
             <td class="hidden">You must enter a date</td>
         </tr>
     </c:when>
+
     <c:otherwise>
         <tr>
             <td>${field}</td><td><input type='text' name="${field}" required="true" id="${field}"></td>

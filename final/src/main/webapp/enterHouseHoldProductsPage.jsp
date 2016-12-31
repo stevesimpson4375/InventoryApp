@@ -8,10 +8,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
         <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <title>Enter Household Product</title>
 
         <%
-            request.setAttribute("typeStrings", HouseHoldProduct.getValidTypes());
+            request.setAttribute("typeStrings", Util.getValidProductTypes());
             request.setAttribute("fields", HouseHoldProduct.getFields());
         %>
         
@@ -28,15 +32,16 @@
                         </c:forEach>
                             <tr>
                                 <td>Type of Product</td>
-                                <td><select name="type">
-                                    <c:forEach var="i" items="${typeStrings}">
-                                        <option value="${i}">${i}</option>
-                                    </c:forEach>
-                                </select></td>
+                                    <td><select name="type">
+                                        <c:forEach var="i" items="${typeStrings}">
+                                            <option value="${i}">${i}</option>
+                                        </c:forEach>
+                                    </select></td>
                         </tr>
                         <tr>
                             <td></td><td><input type="submit" value=
-                                                "Save Household Product"></td>
+                                                "Save Household Product"
+                                                class="createButton"></td>
                         </tr>
                     </table>
                 </form>

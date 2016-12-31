@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $(".datepicker").datepicker();
+
     var $inputPrice = $("input[id='Price']");
     var $tdPrice = $("td[name='Price']");
     $inputPrice.keyup(function () {
@@ -29,29 +32,61 @@ $(document).ready(function () {
         }
     });
 
-/* The following checks that the forms have usable values before submitting */
+    /* The following checks that the forms have usable values before submitting */
     $(".createButton").click(function (event) {
-        
+
         if (!$.isNumeric($("input[id='Price']").val())) {
             event.preventDefault();
         }
-    /*Not all forms have the following, so they are checked for before testing*/    
+        /*Not all forms have the following, so they are checked for before testing*/
         if ($("input[id='Amount']").length) {
             if (!$.isNumeric($("input[id='Amount']").val())) {
                 event.preventDefault();
             }
         }
-        
+
         if ($("input[id='Weight (in kg)']").length) {
             if (!$.isNumeric($("input[id='Weight (in kg)']").val())) {
                 event.preventDefault();
             }
         }
     });
-    
+
     $(".searchButton").click(function (event) {
-        if(!$.isNumeric($("input[id='Price']").val())){
+        if (!$.isNumeric($("input[id='Price']").val())) {
             event.preventDefault();
         }
     });
+
+    $(".selectFoodExample").change(function () {
+        if ($(".selectFoodExample").val() === "Cheese") {
+            selectCheese();
+        }
+    });
+
+
+    function selectCheese() {
+
+        $("input[id='Description']").val("Cheese");
+        $("input[id='Price']").val("4.00");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Expiration Date']").val(getDateStringAdded(180));
+        $("input[id='Amount']").val("8");
+        $("input[id='Amount Type']").val("Ounces");
+    }
+
+    function getDateString() {
+        var now = new Date();
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        return (month) + "/" + (day) + "/" + now.getFullYear();
+    }
+
+    function getDateStringAdded(addedDays) {
+        var now = new Date();
+        now.setDate(now.getDate() + addedDays);
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        return (month) + "/" + (day) + "/" + now.getFullYear();
+    }
 });

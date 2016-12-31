@@ -16,14 +16,23 @@ import java.util.logging.Logger;
 public class Util {
     
     public static SimpleDateFormat getDateFormat(){
-        return new SimpleDateFormat("yyyy-MM-dd");
+        return new SimpleDateFormat("MM/dd/yyyy");
     }
     
     public static String[] getValidApplianceTypes(){
         return new String[] {"Air Conditioner", "Air Fryer", "Bread Machine", "Clothes Dryer",
-            "Coffee Maker", "Dish Washer", "Deep Fryer", "Espresso Machine", "Garbage Disposal",
-            "Microwave", "Oven", "Refridgerator", "Sewing Machine", "Sump Pump",
-            "Toaster", "Washing Machine", "Water Heater"};
+            "Coffee Maker", "Dish Washer", "Deep Fryer", "Espresso Machine", "Freezer",
+            "Garbage Disposal", "Microwave", "Oven", "Refridgerator", "Sewing Machine",
+            "Sump Pump", "Toaster", "Washing Machine", "Water Heater"};
+    }
+    
+    public static String[] getValidProductTypes() {
+        return new String[] { "Dish Soap", "Dryer Sheets", "Hand Soap", "Laundry Soap",
+            "Paper Towels", "Soap", "Straws", "Toilet Paper"};
+    }
+    
+    public static String[] getExampleFoods() {
+        return new String[] { "Apple", "Bacon", "Cheese", "Red Baron Pizza, Pepperoni"};
     }
 
     /* The datastore class contains everything needed for working with Google's

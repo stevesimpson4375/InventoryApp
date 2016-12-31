@@ -9,10 +9,7 @@ import java.util.Date;
 public class HouseHoldProduct extends Consumable{
     
     @Index private String type;
-    
-    static private String[] validTypes = { "Paper Towels", "Soap",
-        "Toilet Paper" };
-    
+        
     static private String[] fields = { "Description", "Price", "Purchase Date",
         "Amount", "Amount Type"}; // The field "type" is omitted do to select box prompt
     
@@ -24,10 +21,6 @@ public class HouseHoldProduct extends Consumable{
     
     public HouseHoldProduct(){};
     
-    static public String[] getValidTypes() {
-        return validTypes;
-    }
-
     public static String[] getFields() {
         return fields;
     }

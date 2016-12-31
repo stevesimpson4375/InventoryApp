@@ -11,20 +11,38 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         <title>Enter Food Page</title>
     </head>
 
     <%
         pageContext.setAttribute("fields", Food.getFields());
+        pageContext.setAttribute("examples", Util.getExampleFoods());
     %>
 
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Enter Food</h3>
+                <br />
                 <div class="survey">
-                    <form action="/enterFood" method="post">
-                        <table class="hydQuestion">
+                    <table class="hydQuestion">
+                        <tr>
+                            <td>Select a predefined food: </td>
+                            <td><select name="type" class="selectFoodExample">
+                                <c:forEach var="i" items="${examples}">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="survey">
+                <form action="/enterFood" method="post">
+                    <table class="hydQuestion">
                         <c:forEach var="attr" items="${fields}">
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
@@ -33,7 +51,7 @@
                         </tr>
                     </table>
                 </form>
-            </div>
+            </div> 
             <%
                 String foodName = request.getParameter("foodName");
                 if (foodName != null) {
