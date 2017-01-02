@@ -25,17 +25,17 @@
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
-                <h3 class="header">Enter Food</h3>
-                <br />
-                <div class="survey">
-                    <table class="hydQuestion">
-                        <tr>
-                            <td>Select a predefined food: </td>
-                            <td><select name="type" class="selectFoodExample">
-                                <c:forEach var="i" items="${examples}">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
-                            </select></td>
+            <h3 class="header">Enter Food</h3>
+            <br />
+            <div class="survey">
+            <table class="hydQuestion">
+                    <tr>
+                        <td>Select a predefined food: </td>
+                        <td><select name="type" class="selectFoodExample">
+                            <c:forEach var="i" items="${examples}">
+                                <option value="${i}">${i}</option>
+                            </c:forEach>
+                        </select></td>
                     </tr>
                 </table>
             </div>

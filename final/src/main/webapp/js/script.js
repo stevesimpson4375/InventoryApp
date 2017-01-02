@@ -58,13 +58,32 @@ $(document).ready(function () {
         }
     });
 
+    /* The following checks for changes to the food examples and calls the matching method */
+    $(".selectFoodExample").change(function () {
+        if ($(".selectFoodExample").val() === "Apples") {
+            selectApples();
+        }
+    });
+    
+    $(".selectFoodExample").change(function () {
+        if ($(".selectFoodExample").val() === "Bacon") {
+            selectBacon();
+        }
+    });
+
     $(".selectFoodExample").change(function () {
         if ($(".selectFoodExample").val() === "Cheese") {
             selectCheese();
         }
     });
-
-
+           
+    $(".selectFoodExample").change(function () {
+        if ($(".selectFoodExample").val() === "Red Baron Pizza, Pepperoni") {
+            selectRedBaron();
+        }
+    });
+    
+    /* The following changes the input text to the predefined input values */
     function selectCheese() {
 
         $("input[id='Description']").val("Cheese");
@@ -73,6 +92,65 @@ $(document).ready(function () {
         $("input[id='Expiration Date']").val(getDateStringAdded(180));
         $("input[id='Amount']").val("8");
         $("input[id='Amount Type']").val("Ounces");
+    }
+    
+    function selectApples() {
+
+        $("input[id='Description']").val("Apples");
+        $("input[id='Price']").val("1.99");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Expiration Date']").val(getDateStringAdded(10));
+        $("input[id='Amount']").val("3");
+        $("input[id='Amount Type']").val("Pounds");
+    }
+    
+     function selectBacon() {
+
+        $("input[id='Description']").val("Bacon");
+        $("input[id='Price']").val("2.99");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Expiration Date']").val(getDateStringAdded(28));
+        $("input[id='Amount']").val("1");
+        $("input[id='Amount Type']").val("Pounds");
+    }
+    
+     function selectRedBaron() {
+
+        $("input[id='Description']").val("Red Baron Pizza, Pepperoni");
+        $("input[id='Price']").val("3.49");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Expiration Date']").val(getDateStringAdded(90));
+        $("input[id='Amount']").val("1");
+        $("input[id='Amount Type']").val("Unit");
+    }  
+
+    /* The following checks for changes to the aapliance examples and calls the matching method */
+    $(".selectApplianceExample").change(function () {
+        if ($(".selectApplianceExample").val() === "Air Fryer") {
+            selectAirFryer();
+        }
+    });
+    
+    $(".selectApplianceExample").change(function () {
+        if ($(".selectApplianceExample").val() === "Bread Machine") {
+            selectBreadMachine();
+        }
+    });
+    
+    $(".selectApplianceExample").change(function () {
+        if ($(".selectApplianceExample").val() === "Coffee Maker") {
+            selectCoffeeMaker();
+        }
+    });
+    
+    /* The following changes the input text to the predefined input values */
+    function selectAirFryer() {
+
+        $("input[id='Description']").val("Air Fryer");
+        $("input[id='Price']").val("73.41");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Material']").val("Plastic and Metal");
+        $("input[id='Weight (in kg)']").val("5");
     }
 
     function getDateString() {

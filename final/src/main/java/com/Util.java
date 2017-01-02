@@ -32,7 +32,11 @@ public class Util {
     }
     
     public static String[] getExampleFoods() {
-        return new String[] { "Apple", "Bacon", "Cheese", "Red Baron Pizza, Pepperoni"};
+        return new String[] { "", "Apples", "Bacon", "Cheese", "Red Baron Pizza, Pepperoni"};
+    }
+    
+    public static String[] getExampleAppliances() {
+        return new String[] {"", "Air Fryer", "Bread Machine", "Coffee Maker"};
     }
 
     /* The datastore class contains everything needed for working with Google's

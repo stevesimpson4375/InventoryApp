@@ -39,7 +39,7 @@
                 };
                 document.getElementById("showAllButton").onclick = function(){
                     location.href = "/showAll.jsp";
-                }
+                };
             </script>
         </div>
     </body>
