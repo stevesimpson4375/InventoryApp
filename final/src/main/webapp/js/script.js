@@ -59,26 +59,26 @@ $(document).ready(function () {
     });
 
     /* The following checks for changes to the food examples and calls the matching method */
-    $(".selectFoodExample").change(function () {
-        if ($(".selectFoodExample").val() === "Apples") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Apples") {
             selectApples();
         }
     });
     
-    $(".selectFoodExample").change(function () {
-        if ($(".selectFoodExample").val() === "Bacon") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Bacon") {
             selectBacon();
         }
     });
 
-    $(".selectFoodExample").change(function () {
-        if ($(".selectFoodExample").val() === "Cheese") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Cheese") {
             selectCheese();
         }
     });
            
-    $(".selectFoodExample").change(function () {
-        if ($(".selectFoodExample").val() === "Red Baron Pizza, Pepperoni") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Red Baron Pizza, Pepperoni") {
             selectRedBaron();
         }
     });
@@ -125,20 +125,20 @@ $(document).ready(function () {
     }  
 
     /* The following checks for changes to the aapliance examples and calls the matching method */
-    $(".selectApplianceExample").change(function () {
-        if ($(".selectApplianceExample").val() === "Air Fryer") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Farberware Oil-Less Fryer") {
             selectAirFryer();
         }
     });
     
-    $(".selectApplianceExample").change(function () {
-        if ($(".selectApplianceExample").val() === "Bread Machine") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Bread Machine") {
             selectBreadMachine();
         }
     });
     
-    $(".selectApplianceExample").change(function () {
-        if ($(".selectApplianceExample").val() === "Coffee Maker") {
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Coffee Maker") {
             selectCoffeeMaker();
         }
     });
@@ -146,11 +146,12 @@ $(document).ready(function () {
     /* The following changes the input text to the predefined input values */
     function selectAirFryer() {
 
-        $("input[id='Description']").val("Air Fryer");
-        $("input[id='Price']").val("73.41");
+        $("input[id='Description']").val("Farberware Oil-Less Fryer");
+        $("input[id='Price']").val("79.99");
         $("input[id='Purchase Date']").val(getDateString());
         $("input[id='Material']").val("Plastic and Metal");
         $("input[id='Weight (in kg)']").val("5");
+        $("select[name='Type of Product']").val("Air Fryer");
     }
 
     function getDateString() {

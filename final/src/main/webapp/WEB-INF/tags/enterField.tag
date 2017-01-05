@@ -12,7 +12,16 @@
             <td class="hidden">You must enter a date</td>
         </tr>
     </c:when>
-
+        <c:when test="${field == 'Type of Product'}">
+            <tr>
+                <td>${field}</td>
+                <td><select name="${field}">
+                        <c:forEach var="i" items="${typeStrings}">
+                            <option value="${i}">${i}</option>
+                        </c:forEach>
+                    </select></td>
+            </tr>
+        </c:when>
     <c:otherwise>
         <tr>
             <td>${field}</td><td><input type='text' name="${field}" required="true" id="${field}"></td>

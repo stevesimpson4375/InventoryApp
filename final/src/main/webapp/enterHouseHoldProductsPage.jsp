@@ -18,26 +18,18 @@
             request.setAttribute("typeStrings", Util.getValidProductTypes());
             request.setAttribute("fields", HouseHoldProduct.getFields());
         %>
-        
+
     </head>
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
-                <h3 class="header">Enter Household Product</h3>
-                <div class="survey">
-                    <form action="/enterProduct" method="post">
-                        <table class="hydQuestion">
+            <h3 class="header">Enter Household Product</h3>
+            <div class="survey">
+                <form action="/enterProduct" method="post">
+                    <table class="hydQuestion">
                         <c:forEach var="attr" items="${fields}">
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
-                            <tr>
-                                <td>Type of Product</td>
-                                    <td><select name="type">
-                                        <c:forEach var="i" items="${typeStrings}">
-                                            <option value="${i}">${i}</option>
-                                        </c:forEach>
-                                    </select></td>
-                        </tr>
                         <tr>
                             <td></td><td><input type="submit" value=
                                                 "Save Household Product"

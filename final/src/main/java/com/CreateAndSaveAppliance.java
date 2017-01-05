@@ -20,7 +20,7 @@ public class CreateAndSaveAppliance extends HttpServlet {
                     Double.parseDouble(req.getParameter(fields[1])),
                     df.parse(req.getParameter(fields[2])),
                     req.getParameter(fields[3]), Double.parseDouble(req.getParameter(fields[4])),
-                    req.getParameter("type"));
+                    req.getParameter(req.getParameter(fields[5])));
             Util.datastore.saveThing(newAppliance);
             resp.sendRedirect("/enterAppliancePage.jsp?applianceName=" + newAppliance.getDescription());
         } catch (ParseException ex) {

@@ -36,7 +36,7 @@ public class Util {
     }
     
     public static String[] getExampleAppliances() {
-        return new String[] {"", "Air Fryer", "Bread Machine", "Coffee Maker"};
+        return new String[] {"", "Farberware Oil-Less Fryer", "Bread Machine", "Coffee Maker"};
     }
 
     /* The datastore class contains everything needed for working with Google's

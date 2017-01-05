@@ -11,7 +11,7 @@ public class HouseHoldProduct extends Consumable{
     @Index private String type;
         
     static private String[] fields = { "Description", "Price", "Purchase Date",
-        "Amount", "Amount Type"}; // The field "type" is omitted do to select box prompt
+        "Amount", "Amount Type", "Type of Product"};
     
     public HouseHoldProduct(String description, Double price, Date purchaseDate,
             Double amount, String amountType, String type){

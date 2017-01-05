@@ -17,26 +17,33 @@
         <%
             request.setAttribute("typeStrings", Util.getValidApplianceTypes());
             request.setAttribute("fields", Appliance.getFields());
+            pageContext.setAttribute("examples", Util.getExampleAppliances());
         %>
     </head>
     <body>
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Enter Appliance</h3>
+                <br />
                 <div class="survey">
-                    <form action="/CreateAndSaveAppliance" method="post">
-                        <table class="hydQuestion">
+                    <table class="hydQuestion">
+                        <tr>
+                            <td>Select a predefined appliance: </td>
+                            <td><select name="type" class="selectExample">
+                                <c:forEach var="i" items="${examples}">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="survey">
+                <form action="/CreateAndSaveAppliance" method="post">
+                    <table class="hydQuestion">
                         <c:forEach var="attr" items="${fields}">
                             <h:enterField field="${attr}"></h:enterField>
                         </c:forEach>
-                        <tr>
-                            <td>Type of Product</td>
-                            <td><select name="type">
-                                    <c:forEach var="i" items="${typeStrings}">
-                                        <option value="${i}">${i}</option>
-                                    </c:forEach>
-                                </select></td>
-                        </tr>
                         <tr>
                             <td></td><td><input type="submit" value="Save Appliance" class="createButton"></td>
                         </tr>

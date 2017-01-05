@@ -31,7 +31,7 @@
             <table class="hydQuestion">
                     <tr>
                         <td>Select a predefined food: </td>
-                        <td><select name="type" class="selectFoodExample">
+                        <td><select name="type" class="selectExample">
                             <c:forEach var="i" items="${examples}">
                                 <option value="${i}">${i}</option>
                             </c:forEach>

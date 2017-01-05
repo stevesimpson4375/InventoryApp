@@ -9,7 +9,7 @@ import java.util.Date;
 public class Appliance extends Durable{
     
     static private String[] fields = { "Description", "Price", "Purchase Date",
-        "Material", "Weight (in kg)"};
+        "Material", "Weight (in kg)", "Type of Product"};
     
     @Index
     private String type;
