@@ -17,6 +17,7 @@
         <%
             request.setAttribute("typeStrings", Util.getValidProductTypes());
             request.setAttribute("fields", HouseHoldProduct.getFields());
+            pageContext.setAttribute("examples", Util.getExampleHouseHoldProducts());
         %>
 
     </head>
@@ -24,6 +25,9 @@
         <div id="container">
             <h:backToHomePage></h:backToHomePage>
             <h3 class="header">Enter Household Product</h3>
+            <br />
+            <h:selectExample examples="${examples}"></h:selectExample>
+            <br />
             <div class="survey">
                 <form action="/enterProduct" method="post">
                     <table class="hydQuestion">

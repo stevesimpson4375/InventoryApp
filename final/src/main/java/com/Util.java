@@ -35,6 +35,10 @@ public class Util {
         return new String[] { "", "Apples", "Bacon", "Cheese", "Red Baron Pizza, Pepperoni"};
     }
     
+    public static String[] getExampleHouseHoldProducts() {
+        return new String[] {"", "Ultra Palmolive Original"};
+    }
+    
     public static String[] getExampleAppliances() {
         return new String[] {"", "Farberware Oil-Less Fryer", "Bread Machine", "Coffee Maker"};
     }

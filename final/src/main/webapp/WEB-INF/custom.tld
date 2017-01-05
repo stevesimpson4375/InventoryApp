@@ -36,4 +36,8 @@
     <name>searchEnter</name>
     <path>/webapp/WEB-INF/tags/searchEnter.tag</path>
   </tag-file>
+  <tag-file>
+    <name>selectExample</name>
+    <path>/webapp/WEB-INF/tags/selectExample.tag</path>
+  </tag-file>
 </taglib>

@@ -153,6 +153,24 @@ $(document).ready(function () {
         $("input[id='Weight (in kg)']").val("5");
         $("select[name='Type of Product']").val("Air Fryer");
     }
+    
+    /* The following checks for changes to the household product examples and calls the matching method */
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Ultra Palmolive Original") {
+            selectDishSoap();
+        }
+    });
+    
+    /* The following changes the input text to the predefined input values */
+    function selectDishSoap() {
+
+        $("input[id='Description']").val("Ultra Palmolive Original");
+        $("input[id='Price']").val("1.83");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Amount']").val("24");
+        $("input[id='Amount Type']").val("Ounces");
+        $("select[name='Type of Product']").val("Dish Soap");
+    }
 
     function getDateString() {
         var now = new Date();

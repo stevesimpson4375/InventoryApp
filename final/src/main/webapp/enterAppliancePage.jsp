@@ -25,18 +25,7 @@
             <h:backToHomePage></h:backToHomePage>
                 <h3 class="header">Enter Appliance</h3>
                 <br />
-                <div class="survey">
-                    <table class="hydQuestion">
-                        <tr>
-                            <td>Select a predefined appliance: </td>
-                            <td><select name="type" class="selectExample">
-                                <c:forEach var="i" items="${examples}">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
-                            </select></td>
-                    </tr>
-                </table>
-            </div>
+            <h:selectExample examples="${examples}"></h:selectExample>
             <br />
             <div class="survey">
                 <form action="/CreateAndSaveAppliance" method="post">
