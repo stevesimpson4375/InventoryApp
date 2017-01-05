@@ -146,7 +146,7 @@ public class Util {
             }
 
             /* The searches return arrays since List types require a function
-                to access fields, which browsers cannot use */
+                to access fields, which more complex in browsers */
             public static InventoryItem[] byDescription(String description) {
                 List<InventoryItem> temp = ofy().load().type(InventoryItem.class)
                         .filter("description", description).list();
@@ -154,6 +154,29 @@ public class Util {
                 for (int i = 0; i < temp.size(); i++) {
                     results[i] = temp.get(i);
                 }
+                
+                /* If nothing is found and the user entered a resonable amount
+                of characters, a search for contains occurs */
+                
+                if(results.length == 0 && description.length() > 2) {
+                    ArrayList<InventoryItem> found = new ArrayList<>();
+                    Query<InventoryItem> all = retreiveAll();
+                    
+                    for(InventoryItem i : all){
+                        if(i.getDescription().contains(description)){
+                            found.add(i);
+                        }
+                    }
+                    
+                    if (!found.isEmpty()) {
+                        InventoryItem[] results2 = new InventoryItem[found.size()];
+                        for (int i = 0; i < found.size(); i++) {
+                            results2[i] = found.get(i);
+                        }
+                        return results2;
+                    }
+                }
+                
                 return results;
             }
 
