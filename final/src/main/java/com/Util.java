@@ -26,23 +26,24 @@ public class Util {
             "Sump Pump", "Toaster", "Washing Machine", "Water Heater"};
     }
     
+     public static String[] getExampleAppliances() {
+        return new String[] {"", "Farberware Oil-Less Fryer", "Bread Machine", "Coffee Maker"};
+    }
+    
     public static String[] getValidProductTypes() {
         return new String[] { "Dish Soap", "Dryer Sheets", "Hand Soap", "Laundry Soap",
-            "Paper Towels", "Soap", "Straws", "Toilet Paper"};
+            "Paper Towels", "Straws", "Toilet Paper"};
+    }
+    
+    public static String[] getExampleHouseHoldProducts() {
+        return new String[] {"", "Ultra Palmolive Original", "Gain Fabric Softener Dryer Sheets, 15-ct.",
+        "Irish Spring Deodorant Bar Soap, 3.75 oz, 8 ct"};
     }
     
     public static String[] getExampleFoods() {
         return new String[] { "", "Apples", "Bacon", "Cheese", "Red Baron Pizza, Pepperoni"};
     }
     
-    public static String[] getExampleHouseHoldProducts() {
-        return new String[] {"", "Ultra Palmolive Original"};
-    }
-    
-    public static String[] getExampleAppliances() {
-        return new String[] {"", "Farberware Oil-Less Fryer", "Bread Machine", "Coffee Maker"};
-    }
-
     /* The datastore class contains everything needed for working with Google's
         Ojectify */
     public static class datastore {

@@ -154,10 +154,42 @@ $(document).ready(function () {
         $("select[name='Type of Product']").val("Air Fryer");
     }
     
+    function selectBreadMachine() {
+
+        $("input[id='Description']").val("Oster 2-Pound Expressbake Bread Machine");
+        $("input[id='Price']").val("59.99");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Material']").val("Plastic and Metal");
+        $("input[id='Weight (in kg)']").val("3.64");
+        $("select[name='Type of Product']").val("Bread Machine");
+    }
+    
+    function selectCoffeeMaker() {
+
+        $("input[id='Description']").val("Mr. Coffee® Advanced Brew 8-Cup");
+        $("input[id='Price']").val("49.99");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Material']").val("Plastic and Metal");
+        $("input[id='Weight (in kg)']").val("3.2");
+        $("select[name='Type of Product']").val("Coffee Maker");
+    }
+    
     /* The following checks for changes to the household product examples and calls the matching method */
     $(".selectExample").change(function () {
         if ($(".selectExample").val() === "Ultra Palmolive Original") {
             selectDishSoap();
+        }
+    });
+    
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Gain Fabric Softener Dryer Sheets, 15-ct.") {
+            selectDryerSheets();
+        }
+    });
+    
+    $(".selectExample").change(function () {
+        if ($(".selectExample").val() === "Irish Spring Deodorant Bar Soap, 3.75 oz, 8 ct") {
+            selectHandSoap();
         }
     });
     
@@ -171,6 +203,26 @@ $(document).ready(function () {
         $("input[id='Amount Type']").val("Ounces");
         $("select[name='Type of Product']").val("Dish Soap");
     }
+    function selectDryerSheets() {
+
+        $("input[id='Description']").val("Gain Fabric Softener Dryer Sheets, 15-ct.");
+        $("input[id='Price']").val("1.00");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Amount']").val("1");
+        $("input[id='Amount Type']").val("Box");
+        $("select[name='Type of Product']").val("Dryer Sheets");
+    }
+    
+    function selectHandSoap() {
+
+        $("input[id='Description']").val("Irish Spring Deodorant Bar Soap, 3.75 oz, 8 ct");
+        $("input[id='Price']").val("3.44");
+        $("input[id='Purchase Date']").val(getDateString());
+        $("input[id='Amount']").val("1");
+        $("input[id='Amount Type']").val("Package");
+        $("select[name='Type of Product']").val("Hand Soap");
+    }
+
 
     function getDateString() {
         var now = new Date();
