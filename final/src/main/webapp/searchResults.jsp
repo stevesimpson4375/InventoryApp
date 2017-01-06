@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="container">
-            <h:backToHomePage></h:backToHomePage>
+            <h:backToSearchPage></h:backToSearchPage>
 
                 <div class="survey">
                     <form action="/DeleteByIdServlet" method="post">

@@ -52,7 +52,8 @@ $(document).ready(function () {
         }
     });
 
-    $(".searchButton").click(function (event) {
+    /* The folowing checks the search enter forms */   
+    $(".searchButton[name='Price']").click(function (event) {
         if (!$.isNumeric($("input[id='Price']").val())) {
             event.preventDefault();
         }
