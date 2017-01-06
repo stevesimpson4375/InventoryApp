@@ -10,6 +10,13 @@
             <td><input type="text" name="searchValue" required="true"
                        class="datepicker" readonly="readonly"></td>
         </c:when>
+        <c:when test="${searchBy == 'Household Product Type'}">
+                <td><select name="${searchBy}">
+                        <c:forEach var="i" items="${productTypeStrings}">
+                            <option value="${i}">${i}</option>
+                        </c:forEach>
+                    </select></td>
+        </c:when>
         <c:otherwise>
             <td><input type="text" name="searchValue" required="true" id="${searchBy}"></td>
         </c:otherwise> 

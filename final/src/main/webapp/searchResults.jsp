@@ -34,7 +34,7 @@
                 </c:choose>
             </div>
 
-            <h:backToHomePage></h:backToHomePage>
+            <h:backToSearchPage></h:backToSearchPage>
         </div>
     </body>
 </html>

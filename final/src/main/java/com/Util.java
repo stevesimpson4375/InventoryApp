@@ -137,7 +137,7 @@ public class Util {
                         break;
                         
                     case "Household Product Type":                        
-                            results = byApplianceType(searchValue);                      
+                            results = byHouseHoldProductType(searchValue);                      
                         break;
 
                     default:

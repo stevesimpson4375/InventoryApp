@@ -1,5 +1,5 @@
 <nav>	
     <a href='/searchPage.jsp'>	  
-        Back to Home Page		
+        Back to Search Page		
     </a>
 </nav>

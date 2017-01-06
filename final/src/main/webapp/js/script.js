@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
+/* The datepicker is the standard jQuery ui */
     $(".datepicker").datepicker();
 
+/* The following checks the forms on the enter pages and provides feedback for errors */
     var $inputPrice = $("input[id='Price']");
     var $tdPrice = $("td[name='Price']");
     $inputPrice.keyup(function () {
@@ -32,13 +34,13 @@ $(document).ready(function () {
         }
     });
 
-    /* The following checks that the forms have usable values before submitting */
+/* The following checks that the forms have usable values before submitting */
     $(".createButton").click(function (event) {
 
         if (!$.isNumeric($("input[id='Price']").val())) {
             event.preventDefault();
         }
-        /*Not all forms have the following, so they are checked for before testing*/
+/*Not all forms have the following, so they are checked for before testing*/
         if ($("input[id='Amount']").length) {
             if (!$.isNumeric($("input[id='Amount']").val())) {
                 event.preventDefault();
@@ -52,14 +54,15 @@ $(document).ready(function () {
         }
     });
 
-    /* The folowing checks the search enter forms */   
+/* The folowing checks the search enter forms */   
     $(".searchButton[name='Price']").click(function (event) {
         if (!$.isNumeric($("input[id='Price']").val())) {
             event.preventDefault();
         }
     });
 
-    /* The following checks for changes to the food examples and calls the matching method */
+/* The following checks for changes to the food examples select element 
+        and calls the matching method */
     $(".selectExample").change(function () {
         if ($(".selectExample").val() === "Apples") {
             selectApples();
@@ -84,7 +87,7 @@ $(document).ready(function () {
         }
     });
     
-    /* The following changes the input text to the predefined input values */
+/* The following changes the input text to the predefined input values */
     function selectCheese() {
 
         $("input[id='Description']").val("Cheese");
@@ -125,7 +128,7 @@ $(document).ready(function () {
         $("input[id='Amount Type']").val("Unit");
     }  
 
-    /* The following checks for changes to the aapliance examples and calls the matching method */
+/* The following checks for changes to the aapliance examples and calls the matching method */
     $(".selectExample").change(function () {
         if ($(".selectExample").val() === "Farberware Oil-Less Fryer") {
             selectAirFryer();
@@ -144,7 +147,7 @@ $(document).ready(function () {
         }
     });
     
-    /* The following changes the input text to the predefined input values */
+/* The following changes the input text to the predefined input values */
     function selectAirFryer() {
 
         $("input[id='Description']").val("Farberware Oil-Less Fryer");
@@ -194,7 +197,7 @@ $(document).ready(function () {
         }
     });
     
-    /* The following changes the input text to the predefined input values */
+/* The following changes the input text to the predefined input values */
     function selectDishSoap() {
 
         $("input[id='Description']").val("Ultra Palmolive Original");
@@ -224,7 +227,7 @@ $(document).ready(function () {
         $("select[name='Type of Product']").val("Hand Soap");
     }
 
-
+/* The dates used are generated here */
     function getDateString() {
         var now = new Date();
         var day = ("0" + now.getDate()).slice(-2);
