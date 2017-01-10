@@ -20,7 +20,7 @@ public class CreateAndSaveHouseHoldProduct extends HttpServlet {
                     Double.parseDouble(req.getParameter(fields[1])),
                     df.parse(req.getParameter(fields[2])),
                     Double.parseDouble(req.getParameter(fields[3])),
-                    req.getParameter(fields[4]), req.getParameter("type"));
+                    req.getParameter(fields[4]), req.getParameter(fields[5]));
             Util.datastore.saveThing(newProduct);
             resp.sendRedirect("/enterHouseHoldProductsPage.jsp?productName=" + newProduct.getDescription());
         } catch (ParseException ex) {

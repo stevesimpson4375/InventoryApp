@@ -46,13 +46,6 @@ nav a {
     color: white;
 }
 
-#container {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-
 #links ul {
     list-style: none;
 }
@@ -115,9 +108,15 @@ nav a {
 }
 
 /* Sortable tables */
-table.sortable thead {
+table.sortable thead{
     background-color:#eee;
     color:#666666;
     font-weight: bold;
     cursor: default;
+}
+
+.sortable{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }

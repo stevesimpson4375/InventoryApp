@@ -13,7 +13,7 @@
         <c:when test="${searchBy == 'Household Product Type'}">
                 <td><select name="${searchBy}">
                         <c:forEach var="i" items="${productTypeStrings}">
-                            <option value="${i}">${i}</option>
+                            <option name="searchValue" value="${i}">${i}</option>
                         </c:forEach>
                     </select></td>
         </c:when>

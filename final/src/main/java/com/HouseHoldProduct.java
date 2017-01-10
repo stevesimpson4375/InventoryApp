@@ -37,6 +37,7 @@ public class HouseHoldProduct extends Consumable{
     public String toString() {
         return "This is: " + getDescription() + ", it costs " + getPrice() + 
                 ", it was purchased " + getPurchaseDate() + ", and you have " +
-                getAmount() + " " + getAmountType();
+                getAmount() + " " + getAmountType() + " and its type is " + 
+                getType();
     }
 }

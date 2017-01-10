@@ -15,7 +15,6 @@
     <body>
         <div id="container">
             <h:backToSearchPage></h:backToSearchPage>
-                <div class="survey">
                     <c:choose>
                         <c:when test="${fn:length(results) == 0}">
                             <p>Search returned no results!</p>
@@ -35,7 +34,6 @@
                             </form>
                         </c:otherwise>
                     </c:choose>
-                </div>
             <h:backToSearchPage></h:backToSearchPage>
         </div>
     </body>
