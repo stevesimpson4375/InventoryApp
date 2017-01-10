@@ -5,6 +5,7 @@ import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -21,6 +22,8 @@ public class InventoryItem {
     private Double price;
     @Index
     private Date purchaseDate;
+    
+    static protected SimpleDateFormat df = Util.getDateFormat();
 
     public InventoryItem(String description, Double price, Date purchaseDate) {
         this.description = description;
@@ -51,7 +54,13 @@ public class InventoryItem {
         this.price = price;
     }
 
-    public Date getPurchaseDate() {
+    // Returning the date as a formatted string prevents having to format it in the browser
+    public String getPurchaseDate() {
+        return df.format(purchaseDate);
+    }
+    
+    // This explicitly returns a date for this field
+    public Date getPurchaseDateByDate() {
         return purchaseDate;
     }
 

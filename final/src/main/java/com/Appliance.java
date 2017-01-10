@@ -38,7 +38,7 @@ public class Appliance extends Durable{
     public String toString() {
         SimpleDateFormat df = Util.getDateFormat();
         return "This is: " + getDescription() + ", it costs " + getPrice() + 
-                ", it was purchased " + df.format(getPurchaseDate()) + ", it is made of " +
+                ", it was purchased " + getPurchaseDate() + ", it is made of " +
                 getMaterial() + ", and it wieghs " + getWeight() + " kg";
     }
 }

@@ -1,13 +1,22 @@
-<%-- 
-    Document   : searchResult
-    Created on : Dec 8, 2016, 11:03:07 AM
-    Author     : steve
---%>
+<%@ tag description="Generates table of results" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%@tag description="put the tag description here" pageEncoding="UTF-8"%>
-
-<%-- The list of normal or fragment attributes can be specified here: --%>
-<%@attribute name="message"%>
-
-<%-- any content can be specified here e.g.: --%>
-<h2>${message}</h2>
+<div class="survey">
+    <table class="hydQuestion sortable">
+        <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Purchase Date</th>
+        </tr>
+        <c:forEach var="i" items="${results}" varStatus="loop">
+            <tr>
+                <td>${fn:escapeXml(i.description)}</td>
+                <td>${fn:escapeXml(i.price)}</td>
+                <td>${i.purchaseDate}</td>
+                <td><button type="submit" name="selected" value="${i.id}">Delete</button></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>

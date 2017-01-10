@@ -26,20 +26,25 @@ public class Food extends Consumable{
         return fields;
     }
     
-    public Date getExpireDate() {
+    // Returning the date as a formatted string prevents having to format it in the browser
+    public String getExpireDate() {
+        return df.format(expireDate);
+    }
+    
+    // This explicitly returns a date for this field
+    public Date getxpireDateByDate() {
         return expireDate;
     }
 
     public void setExpireDate(Date exipreDate) {
         this.expireDate = exipreDate;
     }
-    
+   
     @Override
     public String toString() {
-        SimpleDateFormat df = Util.getDateFormat();
         return "This is: " + getDescription() + ", it costs " + getPrice() + 
-                ", it was purchased " + df.format(getPurchaseDate()) + ", you have " +
+                ", it was purchased " + getPurchaseDate() + ", you have " +
                 getAmount() + " " + getAmountType() + ", and it expires " + 
-                df.format(getExpireDate());
+                getExpireDate();
     }
 }

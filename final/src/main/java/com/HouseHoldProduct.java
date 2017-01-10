@@ -35,9 +35,8 @@ public class HouseHoldProduct extends Consumable{
     
     @Override
     public String toString() {
-        SimpleDateFormat df = Util.getDateFormat();
         return "This is: " + getDescription() + ", it costs " + getPrice() + 
-                ", it was purchased " + df.format(getPurchaseDate()) + ", and you have " +
+                ", it was purchased " + getPurchaseDate() + ", and you have " +
                 getAmount() + " " + getAmountType();
     }
 }

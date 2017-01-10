@@ -107,10 +107,9 @@ public class UtilTest {
     @Test
     public void testByPurchaseDate() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createFood());
-        SimpleDateFormat df = Util.getDateFormat();
         Thread.sleep(TestUtilities.getThreadWait());
         InventoryItem[] results = Util.datastore.search.searchTypeResolver(
-                "Purchase Date", df.format(TestUtilities.createFood().getPurchaseDate()));
+                "Purchase Date", TestUtilities.createFood().getPurchaseDate());
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
@@ -118,11 +117,10 @@ public class UtilTest {
     @Test
     public void testByEpireDate() throws InterruptedException{
         Util.datastore.saveFood(TestUtilities.createFood());
-        SimpleDateFormat df = Util.getDateFormat();
         Thread.sleep(TestUtilities.getThreadWait());
         InventoryItem[] results = Util.datastore.search.searchTypeResolver(
-                "Expiration Date", df.format(TestUtilities.createFood().
-                        getExpireDate()));
+                "Expiration Date", TestUtilities.createFood().
+                        getExpireDate());
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
         Util.datastore.deleteAll();
     }
