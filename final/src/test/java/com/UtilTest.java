@@ -125,6 +125,7 @@ public class UtilTest {
         Util.datastore.deleteAll();
     }
     
+    @Test
     public void testByApplianceType() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createAppliance());
         Thread.sleep(TestUtilities.getThreadWait());
@@ -133,6 +134,7 @@ public class UtilTest {
         assertEquals(results[0].toString(), TestUtilities.createAppliance().toString());
     }
     
+    @Test
     public void testByHouseHoldType() throws InterruptedException{
         Util.datastore.saveThing(TestUtilities.createHouseHoldProduct());
         Thread.sleep(TestUtilities.getThreadWait());

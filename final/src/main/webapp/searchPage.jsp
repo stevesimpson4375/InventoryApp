@@ -15,7 +15,10 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <title>Search Page</title>
-        <% request.setAttribute("productTypeStrings", Util.getValidProductTypes()); %>
+        <% 
+            request.setAttribute("productTypeStrings", Util.getValidProductTypes()); 
+            request.setAttribute("applianceTypeStrings", Util.getValidApplianceTypes()); 
+        %>
     </head>
     <body> 
         <div id="container">
@@ -50,7 +53,14 @@
                     <table class="hydQuestion">
                         <form action="/SearchBy" method="post">
                             <h:searchEnter searchBy="Household Product Type"></h:searchEnter>
-                        
+                        </form>
+                    </table>
+                </div>
+                <h3 class="header">Appliance Item Only Searches</h3>
+                <div class="survey">
+                    <table class="hydQuestion">
+                        <form action="/SearchBy" method="post">
+                            <h:searchEnter searchBy="Appliance Type"></h:searchEnter>
                         </form>
                     </table>
                 </div>

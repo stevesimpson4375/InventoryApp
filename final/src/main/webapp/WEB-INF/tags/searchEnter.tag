@@ -11,9 +11,16 @@
                        class="datepicker" readonly="readonly"></td>
         </c:when>
         <c:when test="${searchBy == 'Household Product Type'}">
-                <td><select name="${searchBy}">
+                <td><select name="searchValue">
                         <c:forEach var="i" items="${productTypeStrings}">
-                            <option name="searchValue" value="${i}">${i}</option>
+                            <option value="${i}">${i}</option>
+                        </c:forEach>
+                    </select></td>
+        </c:when>
+        <c:when test="${searchBy == 'Appliance Type'}">
+                <td><select name="searchValue">
+                        <c:forEach var="i" items="${applianceTypeStrings}">
+                            <option value="${i}">${i}</option>
                         </c:forEach>
                     </select></td>
         </c:when>
