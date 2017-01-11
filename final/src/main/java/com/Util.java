@@ -70,6 +70,15 @@ public class Util {
             }
             return itemList;
         }
+        
+        public static InventoryItem[] retreiveAllArray() {
+            List<InventoryItem> all = ofy().load().type(InventoryItem.class).list();
+            InventoryItem[] results = new InventoryItem[all.size()];
+            for(int i = 0; i < results.length; i++) {
+                results[i] = all.get(i);
+            }
+            return results;
+        }
 
         public static ArrayList<String> retrieveDescriptions() {
 

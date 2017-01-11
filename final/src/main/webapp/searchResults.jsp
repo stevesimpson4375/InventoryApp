@@ -28,7 +28,7 @@
                                             </tr>
                                         </c:forEach>
                                     </table>--%>
-                            <h:searchResult></h:searchResult>
+                                <h:searchResult></h:searchResult>
                             <input type="hidden" name="searchedBy" value="${searchedBy}" />
                             <input type="hidden" name="searchValue" value="${searchValue}" />
                             </form>
