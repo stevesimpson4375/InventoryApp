@@ -21,13 +21,6 @@
                         </c:when>
                         <c:otherwise>
                             <form action="/DeleteByIdServlet" method="post">
-                                <%--<table class="hydQuestion">
-                                        <c:forEach var="i" items="${results}" varStatus="loop">
-                                            <tr><td>${fn:escapeXml(i)}</td><td>${i.id}</td>
-                                                <td><button type="submit" name="selected" value="${i.id}">Delete</button></td>
-                                            </tr>
-                                        </c:forEach>
-                                    </table>--%>
                                 <h:searchResult></h:searchResult>
                             <input type="hidden" name="searchedBy" value="${searchedBy}" />
                             <input type="hidden" name="searchValue" value="${searchValue}" />

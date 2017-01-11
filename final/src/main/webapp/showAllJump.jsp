@@ -6,10 +6,10 @@
 </head>
 <body> 
    
-    <form action="${forwardUrl}" method="post" id="form1">
+    <form action="/SearchBy" method="post" id="form1">
         <table>
-            <input type="hidden" name="searchedBy" value="${searchedBy}" />
-            <input type="hidden" name="searchValue" value="${searchValue}" />
+            <input type="hidden" name="searchedBy" value="all" />
+            <input type="hidden" name="searchValue" value="all" />
         </table>
     </form>
     

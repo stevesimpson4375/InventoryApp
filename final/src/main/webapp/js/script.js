@@ -170,7 +170,7 @@ $(document).ready(function () {
     
     function selectCoffeeMaker() {
 
-        $("input[id='Description']").val("Mr. Coffee® Advanced Brew 8-Cup");
+        $("input[id='Description']").val("Mr. Coffee Advanced Brew 8-Cup");
         $("input[id='Price']").val("49.99");
         $("input[id='Purchase Date']").val(getDateString());
         $("input[id='Material']").val("Plastic and Metal");

@@ -10,6 +10,9 @@
             <th>Description</th>
             <th>Price</th>
             <th>Purchase Date</th>
+            <th>Expiration Date</th>
+            <th>Amount</th>
+            <th>Amount Type</th>
         </tr>
         <c:forEach var="i" items="${results}" varStatus="loop">
             <c:choose>
@@ -18,6 +21,9 @@
                         <td>${fn:escapeXml(i.description)}</td>
                         <td>${fn:escapeXml(i.price)}</td>
                         <td>${i.purchaseDate}</td>
+                        <td>${i.expireDate}</td>
+                        <td>${fn:escapeXml(i.amount)}</td>
+                        <td>${i.amountType}</td>
                         <td><button type="submit" name="selected" value="${i.id}">Delete</button></td>
                     </tr>
                 </c:when>

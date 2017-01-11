@@ -19,7 +19,7 @@
                         <td><button id="houseHoldProductsButton">Enter Household Item</button></td>
                         <td><button id="applianceButton">Enter Appliance</button></td>
                         <td><button id="searchButton">Search Data</button></td>
-                        <td><button id="showAllButton">See Everything You Have</button>
+                        <td><button id="showAllButton">See Everything You Have</button></td>
                     </tr>
                 </table>
             </div>
@@ -38,7 +38,7 @@
                     location.href = "/searchPage.jsp";
                 };
                 document.getElementById("showAllButton").onclick = function(){
-                    location.href = "/showAll.jsp";
+                    location.href = "/showAllJump.jsp";
                 };
             </script>
         </div>

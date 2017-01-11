@@ -148,7 +148,9 @@ public class Util {
                     case "Household Product Type":                        
                             results = byHouseHoldProductType(searchValue);                      
                         break;
-
+                    case "all":
+                        results = retreiveAllArray();
+                        break;
                     default:
                         results = new InventoryItem[1];
                 }
