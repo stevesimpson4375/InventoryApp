@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="stylesheets/mystyle.css">
-        <title>Search Results: Price</title>
+        <title>Search Results</title>
         <script type="text/javascript" src="js/sorttable.js"></script>
     </head>
     <body>

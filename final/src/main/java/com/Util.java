@@ -167,20 +167,20 @@ public class Util {
                     results[i] = temp.get(i);
                 }
                 
-                /* If nothing is found and the user entered a resonable amount
-                of characters, a search for contains occurs */
                 
-                if(results.length == 0 && description.length() > 2) {
+                // The search below is case insensitive
+                
+                Query<InventoryItem> all = retreiveAll();
+                
+                if(results.length == 0) {
                     ArrayList<InventoryItem> found = new ArrayList<>();
-                    Query<InventoryItem> all = retreiveAll();
-                    
-                    for(InventoryItem i : all){
-                        if(i.getDescription().contains(description)){
+                    for(InventoryItem i : all) {
+                        if(i.getDescription().equalsIgnoreCase(description)){
                             found.add(i);
                         }
                     }
                     
-                    if (!found.isEmpty()) {
+                    if(!found.isEmpty()) {
                         InventoryItem[] results2 = new InventoryItem[found.size()];
                         for (int i = 0; i < found.size(); i++) {
                             results2[i] = found.get(i);
@@ -188,6 +188,28 @@ public class Util {
                         return results2;
                     }
                 }
+                
+                /* If nothing is found and the user entered a resonable amount
+                of characters, a search for contains occurs */
+                
+                // This searches for a partial string match
+                if(results.length == 0 && description.length() > 2) {
+                    ArrayList<InventoryItem> found = new ArrayList<>();
+                    for(InventoryItem i : all) {
+                        if(i.getDescription().toLowerCase().contains(description.toLowerCase())) {
+                            found.add(i);
+                        }
+                    }
+                    
+                    if(!found.isEmpty()) {
+                        InventoryItem[] results3 = new InventoryItem[found.size()];
+                        for (int i = 0; i < found.size(); i++) {
+                            results3[i] = found.get(i);
+                        }
+                        return results3;
+                    }
+                }
+                
                 
                 return results;
             }

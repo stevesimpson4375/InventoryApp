@@ -84,13 +84,24 @@ public class UtilTest {
     }
     
     @Test
-    public void testByDecription() throws InterruptedException{
+    public void testByDescription() throws InterruptedException{
         
         Util.datastore.saveThing(TestUtilities.createFood());
         Thread.sleep(TestUtilities.getThreadWait()); // Saving to the datastore is not always instant
         InventoryItem[] results = Util.datastore.search.searchTypeResolver(
                 "Description", TestUtilities.createFood().getDescription());
         assertEquals(results[0].toString(), TestUtilities.createFood().toString());
+        
+        // The case insensitive search is also checked
+        InventoryItem[] resultsCaseInsensitive = Util.datastore.search.searchTypeResolver(
+                "Description", TestUtilities.createFood().getDescription().toLowerCase());
+        assertEquals(resultsCaseInsensitive[0].toString(), TestUtilities.createFood().toString());
+        
+        // The partial search is also checked
+        InventoryItem[] resultsPartial = Util.datastore.search.searchTypeResolver(
+                "Description", TestUtilities.createFood().getDescription().toLowerCase().substring(0,3)); 
+        assertEquals(resultsPartial[0].toString(), TestUtilities.createFood().toString());
+        
         Util.datastore.deleteAll();
     }
     
